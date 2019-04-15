@@ -5,8 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PM_QLTiecCuoi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Wedding Management HP" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="15*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+                
+        <Border BorderBrush="Black" BorderThickness="2">
+        <Grid Grid.Row ="0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="TextBlock1"  
+        Text="NHA HANG HOANG PHUONG" Foreground="Red"
+        TextWrapping="Wrap" TextAlignment="Left" Padding="2"
+        FontSize="20" FontFamily="Arial Black"
+        Margin="20,20,580,20" >
+        </TextBlock>
+
+        <TextBlock Name ="TextBlock2"
+        Text="Dia Chi:"
+        Foreground="Red"
+        TextWrapping="Wrap" TextAlignment="Left" Padding="0"
+        Margin="300,0,0,0"
+        FontSize="20" FontFamily="Arial">
+        </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+       
+
+        <Button Name="Infor" Height="48" Width="120" 
+        VerticalAlignment="Bottom"  
+        HorizontalAlignment="Right"
+        Content="Cap Nhat" FontSize="15"
+        Grid.Row="3" Margin="0,0,32,10">
+        </Button>
+
         
+        
+        <TextBlock Name ="TextBox2"
+        Text="CAP NHAT SANH"
+        Foreground="Red"
+        TextWrapping="Wrap" Padding="2"
+        FontSize="20" FontFamily="Arial" Grid.Row="1"
+        Margin="20,0,0,0"
+        TextAlignment="Left">
+        </TextBlock>
+        
+        <Grid Grid.Row="2">
+            <TextBox x:Name="textBox" HorizontalAlignment="Left" 
+            Height="23" Margin="20,33,0,0" TextWrapping="Wrap" 
+            Text="Ten Sanh" VerticalAlignment="Top" Width="206"
+            FontSize="14"
+            />
+            <TextBox x:Name="textBox2" HorizontalAlignment="Left" 
+            Height="23" Margin="20,66,0,0" TextWrapping="Wrap" 
+            Text="Loai Sanh" VerticalAlignment="Top" Width="139"
+            FontSize="14"
+            />
+            <TextBox x:Name="textBox3" HorizontalAlignment="Left" 
+            Height="23" Margin="226,33,0,0" TextWrapping="Wrap" 
+            Text="So Luong Ban Toi Da" VerticalAlignment="Top" 
+            Width="215"
+            FontSize="14"
+             />
+            <TextBox x:Name="textBox4" HorizontalAlignment="Left" 
+            Height="23" Margin="159,66,0,0" TextWrapping="Wrap" 
+            Text="Don Gia Ban Toi Thieu" VerticalAlignment="Top" 
+            Width="282"
+            FontSize="14"
+            />
+            <TextBox x:Name="textBox5" HorizontalAlignment="Left" 
+            Height="122" Margin="20,106,0,0" TextWrapping="Wrap" 
+            Text="Ghi Chu" VerticalAlignment="Top" Width="421"
+            FontSize="14"
+            />
+        </Grid>
     </Grid>
 </Window>

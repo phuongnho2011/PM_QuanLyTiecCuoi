@@ -1,184 +1,141 @@
-# PM_QuanLyTiecCuoi
-
-Library-Management
-Feature:
-I. Introduction
-
-II.Function
-
-1. Register library card
-2. Register new book
-3. Browsing
-4. Lending book
-5. Returning book
-6. Report
-7. Regulations
-III. Example
-
-IV. FAQ & Usage
-
-V. Support
-
-VI. Contributing
-
-===========================
-
-I. Introduction:
-A free library-managing app created by TNQN1998 team. This app is made exclusively for the librarian to manage and running the library smoothly
-
-
-II. Function:
-
-1. Register library card
-Information about library card:
-
-Member's name
-Reader's category
-Birthday
-Address
-Email
-Register Day
-â€¢	Step 01: Access database.
-
-â€¢	Step 02: Load the existent data.
-
-â€¢	Step 03: Read the input from user.
-
-â€¢	Step 04: Check the input with the existent data (â€œReader's category â€â€¦).
-
-â€¢	Step 05: Calculate reader's age.
-
-â€¢	Step 06: Check the requirement of minimum age.
-
-â€¢	Step 07: Check the requirement of maximum age.
-
-â€¢	Step 08: If the requirements are not met skip to step 12.
-
-â€¢	Step 09: Calculate the expiration date.
-
-â€¢	Step 10: Store the user's info into database.
-
-â€¢	Step 11: Print result.
-
-â€¢	Step 12: Close connection.
-
-â€¢	Step 13: Finish.
-
-
-2. Register new book
-â€¢	D1: Book's info: Title, Category, Author, Publication date, Publisher, Receipt date, Cost.
-
-â€¢	D2: None.
-
-â€¢	D3: List of book's category + author.
-
-â€¢	D4: D1.
-
-â€¢	D5: D4.
-
-â€¢	D6: List of book's category + author.
-
-â€¢	Step 01: Access database.
-
-â€¢	Step 02: Load the existent data.
-
-â€¢	Step 03: Read the input from user.
-
-â€¢	Step 04: Check input ("Category,....").
-
-â€¢	Step 05: Check the requirement of the category "Less then 8 years".
-
-â€¢	Step 06: Check the requirement of the category "More then 8 years" .
-
-â€¢	Step 07: If the requirements are not met skip to step 10.
-
-â€¢	Step 08: Store the user's info into database.
-
-â€¢	Step 09: Print result.
-
-â€¢	Step 10: Close connection.
-
-â€¢	Step 11: Finish.
-
-
-3. Browsing
-â€¢	D1: Check the standard for browsing (â€œCodeâ€, â€œTitleâ€, â€œCategoryâ€,â€Authorâ€,â€Statusâ€)
-
-â€¢	D2: None.
-
-â€¢	D3: Result table (â€œIDâ€,â€œCodeâ€, â€œTitleâ€, â€œCategoryâ€,â€Authorâ€,â€Statusâ€).
-
-â€¢	D4: None.
-
-â€¢	D5: D3.
-
-â€¢	D6: D3.
-
-â€¢	Step 01: Read the input from user.
-
-â€¢	Step 02: Access database.
-
-â€¢	Step 03: Read D3 from secondary memory.
-
-â€¢	Step 04: Print result.
-
-â€¢	Step 05: Return input back to user.
-
-â€¢	Step 06: Close connection.
-
-â€¢	Step 07: Finish.
-
-
-4. Lending book
-â€¢	D1: User's requested info: â€œNameâ€, â€œDateâ€.
-
-â€¢	D2: None.
-
-â€¢	D3: List of books met requirement.
-
-â€¢	D4: D1.
-
-â€¢	D5: D4.
-
-â€¢	BÆ°á»›c 01: Access Database.
-
-â€¢	BÆ°á»›c 02: Read info from secondary mem.
-
-â€¢	BÆ°á»›c 03: Read input from user.
-
-â€¢	BÆ°á»›c 04: Check the input (â€œ Nameâ€, â€œLending dateâ€â€¦).
-
-â€¢	BÆ°á»›c 05: Check the regulation â€œExpiration Dateâ€.
-
-â€¢	BÆ°á»›c 06: Check the regulation â€œKhÃ´ng cÃ³ sÃ¡ch mÆ°á»£n quÃ¡ háº¡nâ€.
-
-â€¢	BÆ°á»›c 07: Check the regulation â€œSÃ¡ch khÃ´ng cÃ³ nguÃ²i Ä‘ang mÆ°á»£nâ€.
-
-â€¢	BÆ°á»›c 08: Check the regulation â€œMá»—i Ä‘á»™c giáº£ muá»™n tá»‘i Ä‘a 5 quyá»ƒn sÃ¡ch trong 4 ngÃ yâ€.
-
-â€¢	BÆ°á»›c 09: If the requirements are not met skip to step 13.
-
-â€¢	BÆ°á»›c 10: Calculate the expiration day.
-
-â€¢	BÆ°á»›c 11: Store the user's info into database.
-
-â€¢	BÆ°á»›c 12: Print result.
-
-â€¢	BÆ°á»›c 13: Close connection.
-
-â€¢	BÆ°á»›c 14: Finish.
-
-
-5. Returning book
-
-6. Report
-
-7. Regulations
-
-III. Example:
-
-IV. FAQ & Usage:
-
-V. Support:
-
-VI. Contributing:
+Qu?n Lı Ti?c C??i
+
+I. Introduce:
+Mô hình phân rã ch?c n?ng : 
+• Qu?n lı ti?c c??i
+  - Qu?n lı s?nh
+    + Ti?p nh?n s?nh
+    + C?p nh?p s?nh
+  - Qu?n lı ti?c c??i
+    + C?p nh?p ti?c c??i
+    + Nh?n ?? ti?c c??i
+    + Tra c?u ti?c c??i
+    + H?y ti?c c??i
+  - Qu?n lı báo cáo
+    + L?p  báo cáo tháng
+  - Qu?n lı hóa ??n
+    + L?p hóa ??n
+    + S? d?ng hay không s? d?ng hình ph?t
+
+II. Công c?:
+
+III. ?i?u ki?n tiên quy?t:
+
+IV. Hàm:
+
+- L?p báo cáo tháng:
+
+D1: tháng.
+D2: không có.
+D3: ngày, s? l??ng, doanh thu, t? l?.
+D4: D1.
+D5: D4.
+D6: Bi?u m?u báo cáo doanh s?.
+
+//Các B??c Th?c Hi?n
+
+B1: k?t n?i d? li?u.
+B2: Nh?p D1 t? n?i dung.
+B3: ??c D3 t? b? nh? ph?.
+B4: Tính t?ng doanh thu.
+B5: Tính t? l?.
+B6: l?u D4 xu?ng b? nh? ph?.
+B7: Xu?t D5 ra máy tính.
+B8: ?óng k?t n?i c? s? d? li?u.
+B9: K?t thúc.
+
+- L?p hóa ??n thanh toán:
+
+D1: tên cô dâu, tên chú r? ,s? l??ng bàn, ??n giá bàn, t?ng ti?n bàn.
+D2: không có.
+D3: d?ch v?, s? l??ng, ??n giá, thành ti?n , t?ng ti?n d?ch v?, 
+t?ng ti?n hóa ??n, ti?n ??t c?c, còn l?i, ngày ??t ti?c.
+D4: D1.
+D5: D4.
+D6: Hóa ??n thanh toán
+
+//Các B??c Th?c Hi?n
+
+B1: k?t n?i d? li?u.
+B2: Nh?p D1 t? n?i dung.
+B3: ??c D3 t? b? nh? ph?.
+B4: so sánh ngày thanh toán v?i ngày ??t ti?c.
+B5: Tính ti?n d?ch v?.
+B6: Tính t?ng ti?n hóa ??n.
+B7: Tính ti?n ??t c?c.
+B8: Tính ti?n còn l?i.
+B9: Tính ti?n ph?t.
+B10: L?u D4 xu?ng b? nh? ph?.
+B11: Xu?t D5 ra máy tính.
+B12: ?óng k?t n?i c? s? d? li?u.
+B13: K?t thúc.
+
+- Tra c?u ti?c c??i: 
+
+D1: tên cô dâu, tên chú r? ,s? l??ng bàn, ??n giá bàn, t?ng ti?n bàn.
+D2: không có.
+D3: ID,tên cô dâu, tên chú r?, s?nh, ngày , gi?, s? l??ng bàn.
+D4: không có.
+D5: D3.
+D6: D3.
+
+//Các B??c Th?c Hi?n
+
+B1: k?t n?i d? li?u.
+B2: ??c D1 t? ng??i dùng.
+B3: ??c D3 t? b? nh? ph?.
+B4: Xu?t danh sách ra máy tính.
+B5:?óng k?t n?i c? s? d? li?u.
+B6: K?t thúc.
+
+- Nh?n ??t ti?c c??i:
+ 
+D1: tên cô dâu, tên chú r? , ?i?n tho?i, ngày, ca, s?nh, 
+ti?n ??t c?c, s? l??ng bàn, s? bàn d? tr?, ??t bàn.
+D2: không có.
+D3: tên món ?n, ??n giá, d?ch v?, s? l??ng, ??n giá, s?nh, ngày, ca.
+D4: D1.
+D5: D4.
+D6: Thông tin ??t ti?c c??i.
+
+//Các B??c Th?c Hi?n
+
+B1: k?t n?i d? li?u.
+B2: ??c D3 t? b? nh? ph?.
+B3: Nh?p D1 t? ng??i dùng.
+B4: Ki?m tra s?nh, ngày , ca còn tr?ng hay không.
+B5: Ki?m tra d?ch v?, món ?n có ?úng hay không.
+B6: L?u D4 xu?ng b? nh? ph?.
+B7: Xu?t D5 ra máy tính.
+B8: ?óng k?t n?i c? s? d? li?u.
+B9: K?t thúc.
+
+- Ti?p nh?n s?nh:
+ 
+D1: tên s?nh, lo?i s?nh, s? l??ng bàn t?i ?a, ??n giá bàn t?i thi?u, ghi chú.
+D2: không có.
+D3: lo?i s?nh,??n giá bàn t?i thi?u
+D4: D1.
+D5: D4.
+D6: Thông tin s?nh.
+
+//Các B??c Th?c Hi?n
+
+B1: k?t n?i d? li?u.
+B2: ??c D3 t? b? nh? ph?.
+B3: Nh?p D1 t? ng??i dùng.
+B4: Ki?m tra lo?i s?nh có trong danh sách các lo?i s?nh hay không.
+B5: Ki?m tra ??n giá bàn t?i thi?u.
+B6: N?u không th?a chuy?n t?i B9.
+B7: L?u D4 xu?ng b? nh? ph?.
+B8: Xu?t D5 ra máy tính
+B9: ?óng k?t n?i c? s? d? li?u
+B10: K?t thúc.
+
+V. Ví d?:
+
+VI. H?i ?áp:
+
+VII. ?óng góp:
+
+IV. Thành viên:
