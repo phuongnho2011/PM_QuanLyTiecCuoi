@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SQLQLTCModelStoreContainer" CdmEntityContainer="SQLQLTCEntities">
+    <EntitySetMapping Name="DICHVUs">
+      <EntityTypeMapping TypeName="SQLQLTCModel.DICHVU">
+        <MappingFragment StoreEntitySet="DICHVU">
+          <ScalarProperty Name="IDDV" ColumnName="IDDV" />
+          <ScalarProperty Name="TENDV" ColumnName="TENDV" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DICHVU_THUCDON">
+      <EntityTypeMapping TypeName="SQLQLTCModel.DICHVU_THUCDON">
+        <MappingFragment StoreEntitySet="DICHVU_THUCDON">
+          <ScalarProperty Name="IDDV" ColumnName="IDDV" />
+          <ScalarProperty Name="IDTD" ColumnName="IDTD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOPDONGs">
+      <EntityTypeMapping TypeName="SQLQLTCModel.HOPDONG">
+        <MappingFragment StoreEntitySet="HOPDONG">
+          <ScalarProperty Name="IDHD" ColumnName="IDHD" />
+          <ScalarProperty Name="SLMONAN" ColumnName="SLMONAN" />
+          <ScalarProperty Name="SLDV" ColumnName="SLDV" />
+          <ScalarProperty Name="TONGTIEN_DVAM" ColumnName="TONGTIEN_DVAM" />
+          <ScalarProperty Name="TTTHANHTOAN" ColumnName="TTTHANHTOAN" />
+          <ScalarProperty Name="SOTIENDATCO" ColumnName="SOTIENDATCO" />
+          <ScalarProperty Name="QUYDINH" ColumnName="QUYDINH" />
+          <ScalarProperty Name="ID_TIECCUOI" ColumnName="ID_TIECCUOI" />
+          <ScalarProperty Name="ID_KHACHHANG" ColumnName="ID_KHACHHANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="SQLQLTCModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+          <ScalarProperty Name="TENKHACHHANG" ColumnName="TENKHACHHANG" />
+          <ScalarProperty Name="SOCMND" ColumnName="SOCMND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MONANs">
+      <EntityTypeMapping TypeName="SQLQLTCModel.MONAN">
+        <MappingFragment StoreEntitySet="MONAN">
+          <ScalarProperty Name="IDMA" ColumnName="IDMA" />
+          <ScalarProperty Name="TENMON" ColumnName="TENMON" />
+          <ScalarProperty Name="LOAI" ColumnName="LOAI" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THUCDONs">
+      <EntityTypeMapping TypeName="SQLQLTCModel.THUCDON">
+        <MappingFragment StoreEntitySet="THUCDON">
+          <ScalarProperty Name="IDTD" ColumnName="IDTD" />
+          <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="ID_TIECCUOI" ColumnName="ID_TIECCUOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THUCDON_MONAN">
+      <EntityTypeMapping TypeName="SQLQLTCModel.THUCDON_MONAN">
+        <MappingFragment StoreEntitySet="THUCDON_MONAN">
+          <ScalarProperty Name="IDTD" ColumnName="IDTD" />
+          <ScalarProperty Name="IDMA" ColumnName="IDMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIECCUOIs">
+      <EntityTypeMapping TypeName="SQLQLTCModel.TIECCUOI">
+        <MappingFragment StoreEntitySet="TIECCUOI">
+          <ScalarProperty Name="IDTC" ColumnName="IDTC" />
+          <ScalarProperty Name="TENCHURE" ColumnName="TENCHURE" />
+          <ScalarProperty Name="TENCODAU" ColumnName="TENCODAU" />
+          <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+          <ScalarProperty Name="CA" ColumnName="CA" />
+          <ScalarProperty Name="ID_KHACHHANG" ColumnName="ID_KHACHHANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

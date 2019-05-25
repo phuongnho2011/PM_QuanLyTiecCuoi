@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="263cd893bb754456bb6b9a2e466df14f" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="SQLQLTCModel.DICHVU" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQLQLTCModel.DICHVU_THUCDON" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQLQLTCModel.HOPDONG" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQLQLTCModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQLQLTCModel.MONAN" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQLQLTCModel.THUCDON" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQLQLTCModel.THUCDON_MONAN" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQLQLTCModel.TIECCUOI" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="SQLQLTCModel.FK__HOPDONG__ID_KHAC__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="SQLQLTCModel.FK__HOPDONG__ID_TIEC__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="SQLQLTCModel.FK__TIECCUOI__ID_KHA__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="SQLQLTCModel.FK__THUCDON__ID_TIEC__59063A47" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

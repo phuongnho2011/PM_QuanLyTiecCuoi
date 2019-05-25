@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SQLQLTCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DICHVU">
+    <Key>
+      <PropertyRef Name="IDDV" />
+    </Key>
+    <Property Name="IDDV" Type="Int32" Nullable="false" />
+    <Property Name="TENDV" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DONGIA" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MOTA" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="GHICHU" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DICHVU_THUCDON">
+    <Key>
+      <PropertyRef Name="IDDV" />
+      <PropertyRef Name="IDTD" />
+    </Key>
+    <Property Name="IDDV" Type="Int32" Nullable="false" />
+    <Property Name="IDTD" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HOPDONG">
+    <Key>
+      <PropertyRef Name="IDHD" />
+    </Key>
+    <Property Name="IDHD" Type="Int32" Nullable="false" />
+    <Property Name="SLMONAN" Type="Int32" />
+    <Property Name="SLDV" Type="Int32" />
+    <Property Name="TONGTIEN_DVAM" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TTTHANHTOAN" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SOTIENDATCO" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="QUYDINH" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="ID_TIECCUOI" Type="Int32" />
+    <Property Name="ID_KHACHHANG" Type="Int32" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__HOPDONG__ID_KHAC__5DCAEF64" FromRole="HOPDONG" ToRole="KHACHHANG" />
+    <NavigationProperty Name="TIECCUOI" Relationship="Self.FK__HOPDONG__ID_TIEC__5CD6CB2B" FromRole="HOPDONG" ToRole="TIECCUOI" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="IDKH" />
+    </Key>
+    <Property Name="IDKH" Type="Int32" Nullable="false" />
+    <Property Name="TENKHACHHANG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SOCMND" Type="Int32" />
+    <NavigationProperty Name="HOPDONGs" Relationship="Self.FK__HOPDONG__ID_KHAC__5DCAEF64" FromRole="KHACHHANG" ToRole="HOPDONG" />
+    <NavigationProperty Name="TIECCUOIs" Relationship="Self.FK__TIECCUOI__ID_KHA__5535A963" FromRole="KHACHHANG" ToRole="TIECCUOI" />
+  </EntityType>
+  <EntityType Name="MONAN">
+    <Key>
+      <PropertyRef Name="IDMA" />
+    </Key>
+    <Property Name="IDMA" Type="Int32" Nullable="false" />
+    <Property Name="TENMON" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LOAI" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="DONGIA" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="GHICHU" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="THUCDON">
+    <Key>
+      <PropertyRef Name="IDTD" />
+    </Key>
+    <Property Name="IDTD" Type="Int32" Nullable="false" />
+    <Property Name="TONGTIEN" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="GHICHU" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="ID_TIECCUOI" Type="Int32" />
+    <NavigationProperty Name="TIECCUOI" Relationship="Self.FK__THUCDON__ID_TIEC__59063A47" FromRole="THUCDON" ToRole="TIECCUOI" />
+  </EntityType>
+  <EntityType Name="THUCDON_MONAN">
+    <Key>
+      <PropertyRef Name="IDTD" />
+      <PropertyRef Name="IDMA" />
+    </Key>
+    <Property Name="IDTD" Type="Int32" Nullable="false" />
+    <Property Name="IDMA" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIECCUOI">
+    <Key>
+      <PropertyRef Name="IDTC" />
+    </Key>
+    <Property Name="IDTC" Type="Int32" Nullable="false" />
+    <Property Name="TENCHURE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TENCODAU" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NGAY" Type="DateTime" Precision="0" />
+    <Property Name="CA" Type="Boolean" />
+    <Property Name="ID_KHACHHANG" Type="Int32" />
+    <NavigationProperty Name="HOPDONGs" Relationship="Self.FK__HOPDONG__ID_TIEC__5CD6CB2B" FromRole="TIECCUOI" ToRole="HOPDONG" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__TIECCUOI__ID_KHA__5535A963" FromRole="TIECCUOI" ToRole="KHACHHANG" />
+    <NavigationProperty Name="THUCDONs" Relationship="Self.FK__THUCDON__ID_TIEC__59063A47" FromRole="TIECCUOI" ToRole="THUCDON" />
+  </EntityType>
+  <Association Name="FK__HOPDONG__ID_KHAC__5DCAEF64">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="IDKH" />
+      </Principal>
+      <Dependent Role="HOPDONG">
+        <PropertyRef Name="ID_KHACHHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOPDONG__ID_TIEC__5CD6CB2B">
+    <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
+    <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIECCUOI">
+        <PropertyRef Name="IDTC" />
+      </Principal>
+      <Dependent Role="HOPDONG">
+        <PropertyRef Name="ID_TIECCUOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TIECCUOI__ID_KHA__5535A963">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="IDKH" />
+      </Principal>
+      <Dependent Role="TIECCUOI">
+        <PropertyRef Name="ID_KHACHHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THUCDON__ID_TIEC__59063A47">
+    <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
+    <End Role="THUCDON" Type="Self.THUCDON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIECCUOI">
+        <PropertyRef Name="IDTC" />
+      </Principal>
+      <Dependent Role="THUCDON">
+        <PropertyRef Name="ID_TIECCUOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SQLQLTCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
+    <EntitySet Name="DICHVU_THUCDON" EntityType="Self.DICHVU_THUCDON" />
+    <EntitySet Name="HOPDONGs" EntityType="Self.HOPDONG" />
+    <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="MONANs" EntityType="Self.MONAN" />
+    <EntitySet Name="THUCDONs" EntityType="Self.THUCDON" />
+    <EntitySet Name="THUCDON_MONAN" EntityType="Self.THUCDON_MONAN" />
+    <EntitySet Name="TIECCUOIs" EntityType="Self.TIECCUOI" />
+    <AssociationSet Name="FK__HOPDONG__ID_KHAC__5DCAEF64" Association="Self.FK__HOPDONG__ID_KHAC__5DCAEF64">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="HOPDONG" EntitySet="HOPDONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOPDONG__ID_TIEC__5CD6CB2B" Association="Self.FK__HOPDONG__ID_TIEC__5CD6CB2B">
+      <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
+      <End Role="HOPDONG" EntitySet="HOPDONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TIECCUOI__ID_KHA__5535A963" Association="Self.FK__TIECCUOI__ID_KHA__5535A963">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THUCDON__ID_TIEC__59063A47" Association="Self.FK__THUCDON__ID_TIEC__59063A47">
+      <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
+      <End Role="THUCDON" EntitySet="THUCDONs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
