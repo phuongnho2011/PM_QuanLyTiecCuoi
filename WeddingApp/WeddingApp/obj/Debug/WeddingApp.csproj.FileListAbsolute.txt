@@ -32,3 +32,11 @@ D:\PROJECT C#\WeddingApp\WeddingApp\bin\Debug\EntityFramework.SqlServer.xml
 D:\PROJECT C#\WeddingApp\WeddingApp\obj\Debug\WeddingApp_Content.g.cs
 D:\PROJECT C#\WeddingApp\WeddingApp\obj\Debug\FoodWindow.g.cs
 D:\PROJECT C#\WeddingApp\WeddingApp\obj\Debug\FoodWindow.baml
+D:\PROJECT C#\WeddingApp\WeddingApp\obj\Debug\LoginWindow.g.cs
+D:\PROJECT C#\WeddingApp\WeddingApp\obj\Debug\LoginWindow.baml
+D:\PROJECT C#\WeddingApp\WeddingApp\bin\Debug\Microsoft.Expression.Interactions.dll
+D:\PROJECT C#\WeddingApp\WeddingApp\bin\Debug\System.Windows.Interactivity.dll
+D:\PROJECT C#\WeddingApp\WeddingApp\bin\Debug\Microsoft.Expression.Interactions.xml
+D:\PROJECT C#\WeddingApp\WeddingApp\bin\Debug\System.Windows.Interactivity.xml
+D:\PROJECT C#\WeddingApp\WeddingApp\obj\Debug\ServiceWindow.g.cs
+D:\PROJECT C#\WeddingApp\WeddingApp\obj\Debug\ServiceWindow.baml

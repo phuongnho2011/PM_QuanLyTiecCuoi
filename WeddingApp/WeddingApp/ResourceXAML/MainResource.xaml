@@ -2,5 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:WeddingApp.ResourceXAML"
                     xmlns:viewmodel="clr-namespace:WeddingApp.ViewModel">
-                    <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>    
+                    <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+                    <viewmodel:FoodViewModel x:Key="FoodVM"></viewmodel:FoodViewModel>
+                    <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+                    <viewmodel:ServicesViewModel x:Key="ServicesVM"></viewmodel:ServicesViewModel>
 </ResourceDictionary>

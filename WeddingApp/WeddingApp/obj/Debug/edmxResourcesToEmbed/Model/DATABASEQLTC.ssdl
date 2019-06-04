@@ -1,33 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SQLQLTCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BAOCAOTHANG">
+    <Key>
+      <PropertyRef Name="IDBC" />
+    </Key>
+    <Property Name="IDBC" Type="int" Nullable="false" />
+    <Property Name="THANGNAM" Type="date" />
+    <Property Name="TRUNGBINHDOANHTHU" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="SOLUONGPHAT" Type="int" />
+    <Property Name="SOLUONGTIEC" Type="int" />
+  </EntityType>
   <EntityType Name="DICHVU">
     <Key>
       <PropertyRef Name="IDDV" />
     </Key>
-    <Property Name="IDDV" Type="int" Nullable="false" />
+    <Property Name="IDDV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENDV" Type="nvarchar" MaxLength="255" />
     <Property Name="DONGIA" Type="decimal" Precision="19" Scale="4" />
     <Property Name="MOTA" Type="nvarchar" MaxLength="1024" />
     <Property Name="GHICHU" Type="nvarchar" MaxLength="1024" />
   </EntityType>
-  <EntityType Name="DICHVU_THUCDON">
+  <EntityType Name="HOADON">
     <Key>
-      <PropertyRef Name="IDDV" />
-      <PropertyRef Name="IDTD" />
+      <PropertyRef Name="IDHOADON" />
     </Key>
-    <Property Name="IDDV" Type="int" Nullable="false" />
-    <Property Name="IDTD" Type="int" Nullable="false" />
+    <Property Name="IDHOADON" Type="int" Nullable="false" />
+    <Property Name="TONGTIENTHANHTOAN" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="PHIPHAT" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="TONGTIENDV" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="TONGTIENMA" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="IDHOPDONG" Type="int" />
   </EntityType>
   <EntityType Name="HOPDONG">
     <Key>
       <PropertyRef Name="IDHD" />
     </Key>
-    <Property Name="IDHD" Type="int" Nullable="false" />
-    <Property Name="SLMONAN" Type="int" />
-    <Property Name="SLDV" Type="int" />
-    <Property Name="TONGTIEN_DVAM" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="IDHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SLMANAN" Type="int" />
+    <Property Name="SLDICHVU" Type="int" />
+    <Property Name="TONGTIENDV" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="TONGTIENMA" Type="decimal" Precision="19" Scale="4" />
     <Property Name="TTTHANHTOAN" Type="decimal" Precision="19" Scale="4" />
-    <Property Name="SOTIENDATCO" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="SOTIENDATCOC" Type="decimal" Precision="19" Scale="4" />
     <Property Name="QUYDINH" Type="nvarchar" MaxLength="1024" />
     <Property Name="ID_TIECCUOI" Type="int" />
     <Property Name="ID_KHACHHANG" Type="int" />
@@ -36,28 +50,44 @@
     <Key>
       <PropertyRef Name="IDKH" />
     </Key>
-    <Property Name="IDKH" Type="int" Nullable="false" />
+    <Property Name="IDKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENKHACHHANG" Type="nvarchar" MaxLength="255" />
     <Property Name="SOCMND" Type="int" />
+  </EntityType>
+  <EntityType Name="LOAIMA">
+    <Key>
+      <PropertyRef Name="IDLOAI" />
+    </Key>
+    <Property Name="IDLOAI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENLOAI" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="MONAN">
     <Key>
       <PropertyRef Name="IDMA" />
     </Key>
-    <Property Name="IDMA" Type="int" Nullable="false" />
+    <Property Name="IDMA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENMON" Type="nvarchar" MaxLength="255" />
-    <Property Name="LOAI" Type="nvarchar" MaxLength="64" />
     <Property Name="DONGIA" Type="decimal" Precision="19" Scale="4" />
     <Property Name="GHICHU" Type="nvarchar" MaxLength="1024" />
+    <Property Name="IDLOAI" Type="int" />
+  </EntityType>
+  <EntityType Name="SUDUNGDV">
+    <Key>
+      <PropertyRef Name="IDDV" />
+      <PropertyRef Name="IDHD" />
+    </Key>
+    <Property Name="IDDV" Type="int" Nullable="false" />
+    <Property Name="IDHD" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="THUCDON">
     <Key>
       <PropertyRef Name="IDTD" />
     </Key>
-    <Property Name="IDTD" Type="int" Nullable="false" />
+    <Property Name="IDTD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SOLUONGMONAN" Type="int" Nullable="false" />
     <Property Name="TONGTIEN" Type="decimal" Precision="19" Scale="4" />
     <Property Name="GHICHU" Type="nvarchar" MaxLength="1024" />
-    <Property Name="ID_TIECCUOI" Type="int" />
+    <Property Name="IDTIECCUOI" Type="int" />
   </EntityType>
   <EntityType Name="THUCDON_MONAN">
     <Key>
@@ -71,14 +101,43 @@
     <Key>
       <PropertyRef Name="IDTC" />
     </Key>
-    <Property Name="IDTC" Type="int" Nullable="false" />
+    <Property Name="IDTC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENCHURE" Type="varchar" MaxLength="255" />
     <Property Name="TENCODAU" Type="varchar" MaxLength="255" />
     <Property Name="NGAY" Type="date" />
     <Property Name="CA" Type="bit" />
-    <Property Name="ID_KHACHHANG" Type="int" />
+    <Property Name="IDKHACHHANG" Type="int" />
   </EntityType>
-  <Association Name="FK__HOPDONG__ID_KHAC__5DCAEF64">
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="IDRole" />
+    </Key>
+    <Property Name="IDRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="IDUS" />
+    </Key>
+    <Property Name="IDUS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__HOADON__IDHOPDON__5070F446">
+    <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="0..1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOPDONG">
+        <PropertyRef Name="IDHD" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="IDHOPDONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOPDONG__ID_KHAC__4AB81AF0">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
     <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
     <ReferentialConstraint>
@@ -90,7 +149,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HOPDONG__ID_TIEC__5CD6CB2B">
+  <Association Name="FK__HOPDONG__ID_TIEC__49C3F6B7">
     <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
     <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
     <ReferentialConstraint>
@@ -102,7 +161,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__THUCDON__ID_TIEC__59063A47">
+  <Association Name="FK__MONAN__IDLOAI__4222D4EF">
+    <End Role="LOAIMA" Type="Self.LOAIMA" Multiplicity="0..1" />
+    <End Role="MONAN" Type="Self.MONAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIMA">
+        <PropertyRef Name="IDLOAI" />
+      </Principal>
+      <Dependent Role="MONAN">
+        <PropertyRef Name="IDLOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THUCDON__IDTIECC__3D5E1FD2">
     <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
     <End Role="THUCDON" Type="Self.THUCDON" Multiplicity="*" />
     <ReferentialConstraint>
@@ -110,11 +181,11 @@
         <PropertyRef Name="IDTC" />
       </Principal>
       <Dependent Role="THUCDON">
-        <PropertyRef Name="ID_TIECCUOI" />
+        <PropertyRef Name="IDTIECCUOI" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TIECCUOI__ID_KHA__5535A963">
+  <Association Name="FK__TIECCUOI__IDKHAC__398D8EEE">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
     <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="*" />
     <ReferentialConstraint>
@@ -122,34 +193,63 @@
         <PropertyRef Name="IDKH" />
       </Principal>
       <Dependent Role="TIECCUOI">
-        <PropertyRef Name="ID_KHACHHANG" />
+        <PropertyRef Name="IDKHACHHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__IdRole__571DF1D5">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="IDRole" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdRole" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="SQLQLTCModelStoreContainer">
+    <EntitySet Name="BAOCAOTHANG" EntityType="Self.BAOCAOTHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DICHVU" EntityType="Self.DICHVU" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DICHVU_THUCDON" EntityType="Self.DICHVU_THUCDON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOPDONG" EntityType="Self.HOPDONG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIMA" EntityType="Self.LOAIMA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MONAN" EntityType="Self.MONAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUDUNGDV" EntityType="Self.SUDUNGDV" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THUCDON" EntityType="Self.THUCDON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THUCDON_MONAN" EntityType="Self.THUCDON_MONAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIECCUOI" EntityType="Self.TIECCUOI" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__HOPDONG__ID_KHAC__5DCAEF64" Association="Self.FK__HOPDONG__ID_KHAC__5DCAEF64">
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__HOADON__IDHOPDON__5070F446" Association="Self.FK__HOADON__IDHOPDON__5070F446">
+      <End Role="HOPDONG" EntitySet="HOPDONG" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOPDONG__ID_KHAC__4AB81AF0" Association="Self.FK__HOPDONG__ID_KHAC__4AB81AF0">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
       <End Role="HOPDONG" EntitySet="HOPDONG" />
     </AssociationSet>
-    <AssociationSet Name="FK__HOPDONG__ID_TIEC__5CD6CB2B" Association="Self.FK__HOPDONG__ID_TIEC__5CD6CB2B">
+    <AssociationSet Name="FK__HOPDONG__ID_TIEC__49C3F6B7" Association="Self.FK__HOPDONG__ID_TIEC__49C3F6B7">
       <End Role="TIECCUOI" EntitySet="TIECCUOI" />
       <End Role="HOPDONG" EntitySet="HOPDONG" />
     </AssociationSet>
-    <AssociationSet Name="FK__THUCDON__ID_TIEC__59063A47" Association="Self.FK__THUCDON__ID_TIEC__59063A47">
+    <AssociationSet Name="FK__MONAN__IDLOAI__4222D4EF" Association="Self.FK__MONAN__IDLOAI__4222D4EF">
+      <End Role="LOAIMA" EntitySet="LOAIMA" />
+      <End Role="MONAN" EntitySet="MONAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THUCDON__IDTIECC__3D5E1FD2" Association="Self.FK__THUCDON__IDTIECC__3D5E1FD2">
       <End Role="TIECCUOI" EntitySet="TIECCUOI" />
       <End Role="THUCDON" EntitySet="THUCDON" />
     </AssociationSet>
-    <AssociationSet Name="FK__TIECCUOI__ID_KHA__5535A963" Association="Self.FK__TIECCUOI__ID_KHA__5535A963">
+    <AssociationSet Name="FK__TIECCUOI__IDKHAC__398D8EEE" Association="Self.FK__TIECCUOI__IDKHAC__398D8EEE">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
       <End Role="TIECCUOI" EntitySet="TIECCUOI" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__IdRole__571DF1D5" Association="Self.FK__Users__IdRole__571DF1D5">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="Users" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

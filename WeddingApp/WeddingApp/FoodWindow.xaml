@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:WeddingApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="FoodWindow" Height="450" Width="800">
+        Title="FoodWindow" Height="450" Width="800"
+        DataContext="{StaticResource FoodVM}">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
@@ -22,12 +23,10 @@
             <!--các element binding từ selected item-->
             <materialDesign:Card Grid.Row="0" Margin="5">
                 <WrapPanel Margin="0 0 0 10">
-                    <TextBox Text="{Binding ObjectDisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên vật tư" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding DateInput}" Width="100" Margin="5 5 15 4.5" materialDesign:HintAssist.Hint="Ngày nhập" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                    <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số lượng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox Text="{Binding PriceInput, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giá nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox Text="{Binding PriceOutput, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giá xuất" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox Text="{Binding Status, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Trạng thái nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding TENMON, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Food Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <ComboBox Margin="5 5 15 5" DisplayMemberPath="TENLOAI" ItemsSource="{Binding ListLoai}" SelectedItem="{Binding LOAIMA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Style" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                    <TextBox Text="{Binding DONGIA, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Price" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding GHICHU, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Note" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 </WrapPanel>
             </materialDesign:Card>
 
@@ -43,17 +42,51 @@
                     <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Vật tư" DisplayMemberBinding="{Binding Object.DisplayName}"></GridViewColumn>
-                                <GridViewColumn Header="Ngày nhập" DisplayMemberBinding="{Binding Input.DateInput}"></GridViewColumn>
-                                <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding Count}"></GridViewColumn>
-                                <GridViewColumn Header="Giá nhập" DisplayMemberBinding="{Binding InputPrice}"></GridViewColumn>
-                                <GridViewColumn Header="Giá xuất" DisplayMemberBinding="{Binding OutputPrice}"></GridViewColumn>
-                                <GridViewColumn Header="Trạng thái nhập" DisplayMemberBinding="{Binding Status}"></GridViewColumn>
+                                <GridViewColumn Header="TENMON" DisplayMemberBinding="{Binding TENMON}"></GridViewColumn>
+                                <GridViewColumn Header="LOAI" DisplayMemberBinding="{Binding LOAIMA.TENLOAI}"></GridViewColumn>
+                                <GridViewColumn Header="DONGIA" DisplayMemberBinding="{Binding DONGIA}"></GridViewColumn>
+                                <GridViewColumn Header="GHICHU" DisplayMemberBinding="{Binding GHICHU}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
                 </ScrollViewer>
             </materialDesign:Card>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <materialDesign:ColorZone  Mode="PrimaryLight" Padding="16" Margin="5" Height="50" Grid.Row="0">
+                <TextBlock Text="Quản lý loại thức ăn" ></TextBlock>
+            </materialDesign:ColorZone>
+            <materialDesign:Card Margin="5,5,5,5" Height="61" Grid.Row="1">
+                <TextBox Text="{Binding TENLOAI , UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Loại Thức Ăn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="50" />
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="2" Margin="5" Height="47">
+                <WrapPanel Margin="2">
+                    <Button Margin="5" Width="45" Command="{Binding ThemLoai}">
+                        <materialDesign:PackIcon Kind="Plus" />
+                    </Button>
+                    <Button Margin="5" Width="45" Command="{Binding XoaLoai}">
+                        <materialDesign:PackIcon Kind="Minus" />
+                    </Button>
+                    <Button Margin="5" Width="45" Command="{Binding SuaLoai}">
+                        <materialDesign:PackIcon Kind="FindReplace" />
+                    </Button>
+                </WrapPanel>
+            </materialDesign:Card>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5" Grid.Row="3">
+                <ListView ItemsSource="{Binding ListLoai}" SelectedItem="{Binding SelectedItemLoai, Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Tên Loại"  DisplayMemberBinding="{Binding TENLOAI}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>

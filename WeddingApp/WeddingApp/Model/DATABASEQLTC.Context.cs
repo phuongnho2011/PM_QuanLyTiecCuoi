@@ -25,13 +25,18 @@ namespace WeddingApp.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BAOCAOTHANG> BAOCAOTHANGs { get; set; }
         public virtual DbSet<DICHVU> DICHVUs { get; set; }
-        public virtual DbSet<DICHVU_THUCDON> DICHVU_THUCDON { get; set; }
+        public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<HOPDONG> HOPDONGs { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
+        public virtual DbSet<LOAIMA> LOAIMAs { get; set; }
         public virtual DbSet<MONAN> MONANs { get; set; }
+        public virtual DbSet<SUDUNGDV> SUDUNGDVs { get; set; }
         public virtual DbSet<THUCDON> THUCDONs { get; set; }
         public virtual DbSet<THUCDON_MONAN> THUCDON_MONAN { get; set; }
         public virtual DbSet<TIECCUOI> TIECCUOIs { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

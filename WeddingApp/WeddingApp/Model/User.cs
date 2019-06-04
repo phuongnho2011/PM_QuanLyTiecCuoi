@@ -12,9 +12,14 @@ namespace WeddingApp.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class DICHVU_THUCDON
+    public partial class User
     {
-        public int IDDV { get; set; }
-        public int IDTD { get; set; }
+        public int IDUS { get; set; }
+        public string DisplayName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public int IdRole { get; set; }
+    
+        public virtual UserRole UserRole { get; set; }
     }
 }

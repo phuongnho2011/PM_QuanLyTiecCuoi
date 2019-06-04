@@ -15,9 +15,10 @@ namespace WeddingApp.Model
     public partial class THUCDON
     {
         public int IDTD { get; set; }
+        public int SOLUONGMONAN { get; set; }
         public Nullable<decimal> TONGTIEN { get; set; }
         public string GHICHU { get; set; }
-        public Nullable<int> ID_TIECCUOI { get; set; }
+        public Nullable<int> IDTIECCUOI { get; set; }
     
         public virtual TIECCUOI TIECCUOI { get; set; }
     }

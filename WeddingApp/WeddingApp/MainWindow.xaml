@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeddingApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1200"
-        DataContext="{StaticResource MainVM}">
+        DataContext="{StaticResource MainVM}"
+        Name="mainWindow">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
+                                   CommandParameter="{Binding ElementName=mainWindow}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -62,7 +70,7 @@
                         </StackPanel>
                     </materialDesign:PopupBox>
                 </StackPanel>
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"> WWW RESTAURENT</TextBlock>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"> WWW RESTAURANT</TextBlock>
             </Grid>
             <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#ffed2d">
                 <Grid.Effect>

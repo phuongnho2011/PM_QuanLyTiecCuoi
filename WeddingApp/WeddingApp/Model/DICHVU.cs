@@ -11,13 +11,24 @@ namespace WeddingApp.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class DICHVU
-    {
-        public int IDDV { get; set; }
-        public string TENDV { get; set; }
-        public Nullable<decimal> DONGIA { get; set; }
-        public string MOTA { get; set; }
-        public string GHICHU { get; set; }
+    using WeddingApp.ViewModel;
+
+    public partial class DICHVU : BaseViewModel
+    {     
+
+        private int _IDDV;
+        public int IDDV { get => _IDDV; set { _IDDV = value; OnPropertyChanged(); } }
+
+        private string _TENDV;
+        public string TENDV { get => _TENDV; set { _TENDV = value; OnPropertyChanged(); } }
+
+        private Nullable<decimal> _DONGIA;
+        public Nullable<decimal> DONGIA { get => _DONGIA; set { _DONGIA = value; OnPropertyChanged(); } }
+
+        private string _MOTA;
+        public string MOTA { get => _MOTA; set { _MOTA = value; OnPropertyChanged(); } }
+
+        private string _GHICHU;
+        public string GHICHU { get => _GHICHU; set { _GHICHU = value; OnPropertyChanged(); } }
     }
 }

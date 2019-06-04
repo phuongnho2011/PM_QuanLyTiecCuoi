@@ -47,11 +47,17 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -79,6 +85,12 @@
     <Compile Include="HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BAOCAOTHANG.cs">
+      <DependentUpon>DATABASEQLTC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DATABASEQLTC.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,10 +106,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DATABASEQLTC.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\DICHVU.cs">
       <DependentUpon>DATABASEQLTC.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DICHVU_THUCDON.cs">
+    <Compile Include="Model\HOADON.cs">
       <DependentUpon>DATABASEQLTC.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\HOPDONG.cs">
@@ -106,7 +119,13 @@
     <Compile Include="Model\KHACHHANG.cs">
       <DependentUpon>DATABASEQLTC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\LOAIMA.cs">
+      <DependentUpon>DATABASEQLTC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\MONAN.cs">
+      <DependentUpon>DATABASEQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SUDUNGDV.cs">
       <DependentUpon>DATABASEQLTC.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\THUCDON.cs">
@@ -118,9 +137,20 @@
     <Compile Include="Model\TIECCUOI.cs">
       <DependentUpon>DATABASEQLTC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>DATABASEQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserRole.cs">
+      <DependentUpon>DATABASEQLTC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceWindow.xaml.cs">
+      <DependentUpon>ServiceWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\FoodViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ServicesViewModel.cs" />
     <Page Include="BookingManage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HomeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +180,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ServiceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

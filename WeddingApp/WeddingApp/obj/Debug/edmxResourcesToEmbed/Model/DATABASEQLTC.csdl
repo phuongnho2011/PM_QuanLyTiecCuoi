@@ -1,68 +1,145 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SQLQLTCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SQLQLTCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BAOCAOTHANGs" EntityType="SQLQLTCModel.BAOCAOTHANG" />
+    <EntitySet Name="DICHVUs" EntityType="SQLQLTCModel.DICHVU" />
+    <EntitySet Name="HOADONs" EntityType="SQLQLTCModel.HOADON" />
+    <EntitySet Name="HOPDONGs" EntityType="SQLQLTCModel.HOPDONG" />
+    <EntitySet Name="KHACHHANGs" EntityType="SQLQLTCModel.KHACHHANG" />
+    <EntitySet Name="LOAIMAs" EntityType="SQLQLTCModel.LOAIMA" />
+    <EntitySet Name="MONANs" EntityType="SQLQLTCModel.MONAN" />
+    <EntitySet Name="SUDUNGDVs" EntityType="SQLQLTCModel.SUDUNGDV" />
+    <EntitySet Name="THUCDONs" EntityType="SQLQLTCModel.THUCDON" />
+    <EntitySet Name="THUCDON_MONAN" EntityType="SQLQLTCModel.THUCDON_MONAN" />
+    <EntitySet Name="TIECCUOIs" EntityType="SQLQLTCModel.TIECCUOI" />
+    <EntitySet Name="UserRoles" EntityType="SQLQLTCModel.UserRole" />
+    <EntitySet Name="Users" EntityType="SQLQLTCModel.User" />
+    <AssociationSet Name="FK__HOADON__IDHOPDON__5070F446" Association="SQLQLTCModel.FK__HOADON__IDHOPDON__5070F446">
+      <End Role="HOPDONG" EntitySet="HOPDONGs" />
+      <End Role="HOADON" EntitySet="HOADONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOPDONG__ID_KHAC__4AB81AF0" Association="SQLQLTCModel.FK__HOPDONG__ID_KHAC__4AB81AF0">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="HOPDONG" EntitySet="HOPDONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOPDONG__ID_TIEC__49C3F6B7" Association="SQLQLTCModel.FK__HOPDONG__ID_TIEC__49C3F6B7">
+      <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
+      <End Role="HOPDONG" EntitySet="HOPDONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TIECCUOI__IDKHAC__398D8EEE" Association="SQLQLTCModel.FK__TIECCUOI__IDKHAC__398D8EEE">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MONAN__IDLOAI__4222D4EF" Association="SQLQLTCModel.FK__MONAN__IDLOAI__4222D4EF">
+      <End Role="LOAIMA" EntitySet="LOAIMAs" />
+      <End Role="MONAN" EntitySet="MONANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THUCDON__IDTIECC__3D5E1FD2" Association="SQLQLTCModel.FK__THUCDON__IDTIECC__3D5E1FD2">
+      <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
+      <End Role="THUCDON" EntitySet="THUCDONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__IdRole__571DF1D5" Association="SQLQLTCModel.FK__Users__IdRole__571DF1D5">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BAOCAOTHANG">
+    <Key>
+      <PropertyRef Name="IDBC" />
+    </Key>
+    <Property Name="IDBC" Type="Int32" Nullable="false" />
+    <Property Name="THANGNAM" Type="DateTime" Precision="0" />
+    <Property Name="TRUNGBINHDOANHTHU" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SOLUONGPHAT" Type="Int32" />
+    <Property Name="SOLUONGTIEC" Type="Int32" />
+  </EntityType>
   <EntityType Name="DICHVU">
     <Key>
       <PropertyRef Name="IDDV" />
     </Key>
-    <Property Name="IDDV" Type="Int32" Nullable="false" />
+    <Property Name="IDDV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TENDV" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="DONGIA" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="MOTA" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
     <Property Name="GHICHU" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="DICHVU_THUCDON">
+  <EntityType Name="HOADON">
     <Key>
-      <PropertyRef Name="IDDV" />
-      <PropertyRef Name="IDTD" />
+      <PropertyRef Name="IDHOADON" />
     </Key>
-    <Property Name="IDDV" Type="Int32" Nullable="false" />
-    <Property Name="IDTD" Type="Int32" Nullable="false" />
+    <Property Name="IDHOADON" Type="Int32" Nullable="false" />
+    <Property Name="TONGTIENTHANHTOAN" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PHIPHAT" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TONGTIENDV" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TONGTIENMA" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IDHOPDONG" Type="Int32" />
+    <NavigationProperty Name="HOPDONG" Relationship="SQLQLTCModel.FK__HOADON__IDHOPDON__5070F446" FromRole="HOADON" ToRole="HOPDONG" />
   </EntityType>
   <EntityType Name="HOPDONG">
     <Key>
       <PropertyRef Name="IDHD" />
     </Key>
-    <Property Name="IDHD" Type="Int32" Nullable="false" />
-    <Property Name="SLMONAN" Type="Int32" />
-    <Property Name="SLDV" Type="Int32" />
-    <Property Name="TONGTIEN_DVAM" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IDHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SLMANAN" Type="Int32" />
+    <Property Name="SLDICHVU" Type="Int32" />
+    <Property Name="TONGTIENDV" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TONGTIENMA" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="TTTHANHTOAN" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="SOTIENDATCO" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SOTIENDATCOC" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="QUYDINH" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
     <Property Name="ID_TIECCUOI" Type="Int32" />
     <Property Name="ID_KHACHHANG" Type="Int32" />
-    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__HOPDONG__ID_KHAC__5DCAEF64" FromRole="HOPDONG" ToRole="KHACHHANG" />
-    <NavigationProperty Name="TIECCUOI" Relationship="Self.FK__HOPDONG__ID_TIEC__5CD6CB2B" FromRole="HOPDONG" ToRole="TIECCUOI" />
+    <NavigationProperty Name="HOADONs" Relationship="SQLQLTCModel.FK__HOADON__IDHOPDON__5070F446" FromRole="HOPDONG" ToRole="HOADON" />
+    <NavigationProperty Name="KHACHHANG" Relationship="SQLQLTCModel.FK__HOPDONG__ID_KHAC__4AB81AF0" FromRole="HOPDONG" ToRole="KHACHHANG" />
+    <NavigationProperty Name="TIECCUOI" Relationship="SQLQLTCModel.FK__HOPDONG__ID_TIEC__49C3F6B7" FromRole="HOPDONG" ToRole="TIECCUOI" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>
       <PropertyRef Name="IDKH" />
     </Key>
-    <Property Name="IDKH" Type="Int32" Nullable="false" />
+    <Property Name="IDKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TENKHACHHANG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="SOCMND" Type="Int32" />
-    <NavigationProperty Name="HOPDONGs" Relationship="Self.FK__HOPDONG__ID_KHAC__5DCAEF64" FromRole="KHACHHANG" ToRole="HOPDONG" />
-    <NavigationProperty Name="TIECCUOIs" Relationship="Self.FK__TIECCUOI__ID_KHA__5535A963" FromRole="KHACHHANG" ToRole="TIECCUOI" />
+    <NavigationProperty Name="HOPDONGs" Relationship="SQLQLTCModel.FK__HOPDONG__ID_KHAC__4AB81AF0" FromRole="KHACHHANG" ToRole="HOPDONG" />
+    <NavigationProperty Name="TIECCUOIs" Relationship="SQLQLTCModel.FK__TIECCUOI__IDKHAC__398D8EEE" FromRole="KHACHHANG" ToRole="TIECCUOI" />
+  </EntityType>
+  <EntityType Name="LOAIMA">
+    <Key>
+      <PropertyRef Name="IDLOAI" />
+    </Key>
+    <Property Name="IDLOAI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENLOAI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MONANs" Relationship="SQLQLTCModel.FK__MONAN__IDLOAI__4222D4EF" FromRole="LOAIMA" ToRole="MONAN" />
   </EntityType>
   <EntityType Name="MONAN">
     <Key>
       <PropertyRef Name="IDMA" />
     </Key>
-    <Property Name="IDMA" Type="Int32" Nullable="false" />
+    <Property Name="IDMA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TENMON" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="LOAI" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
     <Property Name="DONGIA" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="GHICHU" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="IDLOAI" Type="Int32" />
+    <NavigationProperty Name="LOAIMA" Relationship="SQLQLTCModel.FK__MONAN__IDLOAI__4222D4EF" FromRole="MONAN" ToRole="LOAIMA" />
+  </EntityType>
+  <EntityType Name="SUDUNGDV">
+    <Key>
+      <PropertyRef Name="IDDV" />
+      <PropertyRef Name="IDHD" />
+    </Key>
+    <Property Name="IDDV" Type="Int32" Nullable="false" />
+    <Property Name="IDHD" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="THUCDON">
     <Key>
       <PropertyRef Name="IDTD" />
     </Key>
-    <Property Name="IDTD" Type="Int32" Nullable="false" />
+    <Property Name="IDTD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SOLUONGMONAN" Type="Int32" Nullable="false" />
     <Property Name="TONGTIEN" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="GHICHU" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
-    <Property Name="ID_TIECCUOI" Type="Int32" />
-    <NavigationProperty Name="TIECCUOI" Relationship="Self.FK__THUCDON__ID_TIEC__59063A47" FromRole="THUCDON" ToRole="TIECCUOI" />
+    <Property Name="IDTIECCUOI" Type="Int32" />
+    <NavigationProperty Name="TIECCUOI" Relationship="SQLQLTCModel.FK__THUCDON__IDTIECC__3D5E1FD2" FromRole="THUCDON" ToRole="TIECCUOI" />
   </EntityType>
   <EntityType Name="THUCDON_MONAN">
     <Key>
@@ -76,19 +153,50 @@
     <Key>
       <PropertyRef Name="IDTC" />
     </Key>
-    <Property Name="IDTC" Type="Int32" Nullable="false" />
+    <Property Name="IDTC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TENCHURE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="TENCODAU" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="NGAY" Type="DateTime" Precision="0" />
     <Property Name="CA" Type="Boolean" />
-    <Property Name="ID_KHACHHANG" Type="Int32" />
-    <NavigationProperty Name="HOPDONGs" Relationship="Self.FK__HOPDONG__ID_TIEC__5CD6CB2B" FromRole="TIECCUOI" ToRole="HOPDONG" />
-    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__TIECCUOI__ID_KHA__5535A963" FromRole="TIECCUOI" ToRole="KHACHHANG" />
-    <NavigationProperty Name="THUCDONs" Relationship="Self.FK__THUCDON__ID_TIEC__59063A47" FromRole="TIECCUOI" ToRole="THUCDON" />
+    <Property Name="IDKHACHHANG" Type="Int32" />
+    <NavigationProperty Name="HOPDONGs" Relationship="SQLQLTCModel.FK__HOPDONG__ID_TIEC__49C3F6B7" FromRole="TIECCUOI" ToRole="HOPDONG" />
+    <NavigationProperty Name="KHACHHANG" Relationship="SQLQLTCModel.FK__TIECCUOI__IDKHAC__398D8EEE" FromRole="TIECCUOI" ToRole="KHACHHANG" />
+    <NavigationProperty Name="THUCDONs" Relationship="SQLQLTCModel.FK__THUCDON__IDTIECC__3D5E1FD2" FromRole="TIECCUOI" ToRole="THUCDON" />
   </EntityType>
-  <Association Name="FK__HOPDONG__ID_KHAC__5DCAEF64">
-    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
-    <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="IDRole" />
+    </Key>
+    <Property Name="IDRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="SQLQLTCModel.FK__Users__IdRole__571DF1D5" FromRole="UserRole" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IDUS" />
+    </Key>
+    <Property Name="IDUS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdRole" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserRole" Relationship="SQLQLTCModel.FK__Users__IdRole__571DF1D5" FromRole="User" ToRole="UserRole" />
+  </EntityType>
+  <Association Name="FK__HOADON__IDHOPDON__5070F446">
+    <End Type="SQLQLTCModel.HOPDONG" Role="HOPDONG" Multiplicity="0..1" />
+    <End Type="SQLQLTCModel.HOADON" Role="HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOPDONG">
+        <PropertyRef Name="IDHD" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="IDHOPDONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOPDONG__ID_KHAC__4AB81AF0">
+    <End Type="SQLQLTCModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1" />
+    <End Type="SQLQLTCModel.HOPDONG" Role="HOPDONG" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="KHACHHANG">
         <PropertyRef Name="IDKH" />
@@ -98,9 +206,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HOPDONG__ID_TIEC__5CD6CB2B">
-    <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
-    <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
+  <Association Name="FK__HOPDONG__ID_TIEC__49C3F6B7">
+    <End Type="SQLQLTCModel.TIECCUOI" Role="TIECCUOI" Multiplicity="0..1" />
+    <End Type="SQLQLTCModel.HOPDONG" Role="HOPDONG" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TIECCUOI">
         <PropertyRef Name="IDTC" />
@@ -110,54 +218,52 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TIECCUOI__ID_KHA__5535A963">
-    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
-    <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="*" />
+  <Association Name="FK__TIECCUOI__IDKHAC__398D8EEE">
+    <End Type="SQLQLTCModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1" />
+    <End Type="SQLQLTCModel.TIECCUOI" Role="TIECCUOI" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="KHACHHANG">
         <PropertyRef Name="IDKH" />
       </Principal>
       <Dependent Role="TIECCUOI">
-        <PropertyRef Name="ID_KHACHHANG" />
+        <PropertyRef Name="IDKHACHHANG" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__THUCDON__ID_TIEC__59063A47">
-    <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
-    <End Role="THUCDON" Type="Self.THUCDON" Multiplicity="*" />
+  <Association Name="FK__MONAN__IDLOAI__4222D4EF">
+    <End Type="SQLQLTCModel.LOAIMA" Role="LOAIMA" Multiplicity="0..1" />
+    <End Type="SQLQLTCModel.MONAN" Role="MONAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIMA">
+        <PropertyRef Name="IDLOAI" />
+      </Principal>
+      <Dependent Role="MONAN">
+        <PropertyRef Name="IDLOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THUCDON__IDTIECC__3D5E1FD2">
+    <End Type="SQLQLTCModel.TIECCUOI" Role="TIECCUOI" Multiplicity="0..1" />
+    <End Type="SQLQLTCModel.THUCDON" Role="THUCDON" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TIECCUOI">
         <PropertyRef Name="IDTC" />
       </Principal>
       <Dependent Role="THUCDON">
-        <PropertyRef Name="ID_TIECCUOI" />
+        <PropertyRef Name="IDTIECCUOI" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SQLQLTCEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
-    <EntitySet Name="DICHVU_THUCDON" EntityType="Self.DICHVU_THUCDON" />
-    <EntitySet Name="HOPDONGs" EntityType="Self.HOPDONG" />
-    <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
-    <EntitySet Name="MONANs" EntityType="Self.MONAN" />
-    <EntitySet Name="THUCDONs" EntityType="Self.THUCDON" />
-    <EntitySet Name="THUCDON_MONAN" EntityType="Self.THUCDON_MONAN" />
-    <EntitySet Name="TIECCUOIs" EntityType="Self.TIECCUOI" />
-    <AssociationSet Name="FK__HOPDONG__ID_KHAC__5DCAEF64" Association="Self.FK__HOPDONG__ID_KHAC__5DCAEF64">
-      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
-      <End Role="HOPDONG" EntitySet="HOPDONGs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__HOPDONG__ID_TIEC__5CD6CB2B" Association="Self.FK__HOPDONG__ID_TIEC__5CD6CB2B">
-      <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
-      <End Role="HOPDONG" EntitySet="HOPDONGs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__TIECCUOI__ID_KHA__5535A963" Association="Self.FK__TIECCUOI__ID_KHA__5535A963">
-      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
-      <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__THUCDON__ID_TIEC__59063A47" Association="Self.FK__THUCDON__ID_TIEC__59063A47">
-      <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
-      <End Role="THUCDON" EntitySet="THUCDONs" />
-    </AssociationSet>
-  </EntityContainer>
+  <Association Name="FK__Users__IdRole__571DF1D5">
+    <End Type="SQLQLTCModel.UserRole" Role="UserRole" Multiplicity="1" />
+    <End Type="SQLQLTCModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="IDRole" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

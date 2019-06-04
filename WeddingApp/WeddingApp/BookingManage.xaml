@@ -132,7 +132,7 @@
                         </StackPanel>
                     </Border>
                     <StackPanel Orientation="Horizontal">
-                        <Button Width="180" Margin="10 0 0 0" Content="Service Manage"></Button>
+                        <Button Width="180" Margin="10 0 0 0" Content="Service Manage" Command="{Binding ServiceCommand}"></Button>
                         <Button Width="50" Margin="2">
                             <materialDesign:PackIcon Kind="ArrowRight" />
                         </Button>

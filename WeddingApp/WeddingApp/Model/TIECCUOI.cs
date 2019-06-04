@@ -26,7 +26,7 @@ namespace WeddingApp.Model
         public string TENCODAU { get; set; }
         public Nullable<System.DateTime> NGAY { get; set; }
         public Nullable<bool> CA { get; set; }
-        public Nullable<int> ID_KHACHHANG { get; set; }
+        public Nullable<int> IDKHACHHANG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOPDONG> HOPDONGs { get; set; }

@@ -14,16 +14,25 @@ namespace WeddingApp.Model
     
     public partial class HOPDONG
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HOPDONG()
+        {
+            this.HOADONs = new HashSet<HOADON>();
+        }
+    
         public int IDHD { get; set; }
-        public Nullable<int> SLMONAN { get; set; }
-        public Nullable<int> SLDV { get; set; }
-        public Nullable<decimal> TONGTIEN_DVAM { get; set; }
+        public Nullable<int> SLMANAN { get; set; }
+        public Nullable<int> SLDICHVU { get; set; }
+        public Nullable<decimal> TONGTIENDV { get; set; }
+        public Nullable<decimal> TONGTIENMA { get; set; }
         public Nullable<decimal> TTTHANHTOAN { get; set; }
-        public Nullable<decimal> SOTIENDATCO { get; set; }
+        public Nullable<decimal> SOTIENDATCOC { get; set; }
         public string QUYDINH { get; set; }
         public Nullable<int> ID_TIECCUOI { get; set; }
         public Nullable<int> ID_KHACHHANG { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual KHACHHANG KHACHHANG { get; set; }
         public virtual TIECCUOI TIECCUOI { get; set; }
     }
