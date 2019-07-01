@@ -40,7 +40,7 @@ namespace WeddingApp.ViewModel
         }
               );          
             FoodCommand = new RelayCommand<object>((p) => { return true; }, (p) => { FoodWindow wd = new FoodWindow(); wd.ShowDialog(); });
-            ServiceCommand = new RelayCommand<object>((p) => { return true; }, (p) => { ServiceWindow wd = new ServiceWindow(); wd.ShowDialog(); });
+            ServiceCommand = new RelayCommand<object>((p) => { return true; }, (p) => { ServiceWindow wd = new ServiceWindow(); wd.ShowDialog(); });            
         }
     }
 }

@@ -150,6 +150,7 @@
     <Compile Include="ViewModel\FoodViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\ServicesViewModel.cs" />
     <Page Include="BookingManage.xaml">
       <SubType>Designer</SubType>

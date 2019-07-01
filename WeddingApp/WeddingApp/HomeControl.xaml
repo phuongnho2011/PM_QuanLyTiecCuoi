@@ -3,10 +3,107 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:WeddingApp"
              mc:Ignorable="d" 
-             d:DesignHeight="850" d:DesignWidth="1010">
-    <Grid Background="DarkOrange">
-        
+             d:DesignHeight="600" d:DesignWidth="1200">
+    <Grid Background="WhiteSmoke">
+        <StackPanel Orientation="Horizontal" Margin="80,50,0,0">
+            <Grid Width="300">
+                <StackPanel>
+                    <materialDesign:ColorZone
+                        Mode="PrimaryLight"
+                        Padding="16"
+                        CornerRadius="3"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                        Margin="2">
+                    <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center">
+                        QUAN LY TIEC CUOI 
+                    </TextBlock>
+                    </materialDesign:ColorZone>
+                    <Grid Margin="8">
+                        <Border BorderBrush="Black" BorderThickness="2" Margin="5 30 5 5">
+                            <StackPanel>
+                                <TextBox materialDesign:HintAssist.Hint="Ten Co Dau"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="8"/>
+                                <TextBox materialDesign:HintAssist.Hint="Ten Chu Re"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="8"/>
+                                <DatePicker Margin="8 8 8 12"
+                                        materialDesign:HintAssist.Hint="Pick Date"
+                                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                <materialDesign:TimePicker
+                                    Margin="8 14 8 0"
+                                    Is24Hours="True"
+                                    x:Name="PresetTimePicker"/>
+                                <TextBox materialDesign:HintAssist.Hint="Sanh"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="8"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" Margin="16 0 0 0">
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Width="160">
+                                Mange
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Width="100"
+                                    Margin="8">
+                                Add
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <Grid Width="300" Margin="8 0 0 0">
+                <StackPanel>
+                    <materialDesign:ColorZone
+                        Mode="PrimaryLight"
+                        Padding="16"
+                        CornerRadius="3"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                        Margin="6 2 2 2">
+                        <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center">
+                        QUAN LY KHACH HANG
+                        </TextBlock>
+                    </materialDesign:ColorZone>
+                    <Grid Margin="8">
+                        <Border BorderBrush="Black" BorderThickness="2" Margin="5 30 5 5">
+                            <StackPanel>
+                                <TextBox materialDesign:HintAssist.Hint="Ten Khach Hang"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="8"/>
+                                <TextBox materialDesign:HintAssist.Hint="So CMND"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="8"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" Margin="16 0 0 0">
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Width="160">
+                                Mange
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Width="100"
+                                    Margin="8">
+                                Add
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <Grid Width="500">
+                
+            </Grid>
+        </StackPanel>
     </Grid>
 </UserControl>
