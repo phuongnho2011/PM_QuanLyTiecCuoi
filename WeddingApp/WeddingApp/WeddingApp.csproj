@@ -85,6 +85,9 @@
     <Compile Include="HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LobbyWindow.xaml.cs">
+      <DependentUpon>LobbyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,9 @@
     <Compile Include="Model\MONAN.cs">
       <DependentUpon>DATABASEQLTC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\SANH.cs">
+      <DependentUpon>DATABASEQLTC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\SUDUNGDV.cs">
       <DependentUpon>DATABASEQLTC.tt</DependentUpon>
     </Compile>
@@ -147,10 +153,13 @@
       <DependentUpon>ServiceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\FoodViewModel.cs" />
+    <Compile Include="ViewModel\LobbyViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModel\PartyViewModel.cs" />
     <Compile Include="ViewModel\ServicesViewModel.cs" />
     <Page Include="BookingManage.xaml">
       <SubType>Designer</SubType>
@@ -161,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HomeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LobbyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

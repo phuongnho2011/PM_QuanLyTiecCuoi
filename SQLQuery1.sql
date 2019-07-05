@@ -120,13 +120,20 @@ CREATE TABLE Users (
 	IdRole int not null
 	FOREIGN KEY (IdRole) REFERENCES UserRole(IDRole)
 )
+GO
 
-INSERT INTO DBO.MONAN(TENMON, LOAI,DONGIA,GHICHU) VALUES (N'cá', N'chiên', 900000,N'còn')
+CREATE TABLE SANH (
+	IDSANH int identity(1,1) primary key not null,
+	TENSANH nvarchar(255),
+	LOAISANH nvarchar(255),
+	SLBANTOIDA int,
+	DGBANTOITHIEU DECIMAL(19,4),
+	GHICHU nvarchar(max),
+	TRANGTHAI bit,
+	IDTIECCUOI int FOREIGN KEY (idtieccuoi) REFERENCES dbo.TIECCUOI(IDTC)
+)
+GO
 
-select * from dbo.MONAN
-SET IDENTITY_INSERT dbo.MONAN off
-
-update DBO.MONAN set TENMON = N'cá 22', LOAI = N'chiên' ,  DONGIA = 900000.0000 , GHICHU = N'còn' where IDMA = 0 
 
 
 

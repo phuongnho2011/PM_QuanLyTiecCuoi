@@ -6,4 +6,5 @@
                     <viewmodel:FoodViewModel x:Key="FoodVM"></viewmodel:FoodViewModel>
                     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
                     <viewmodel:ServicesViewModel x:Key="ServicesVM"></viewmodel:ServicesViewModel>
+                    <viewmodel:LobbyViewModel x:Key="LobbyWindow"></viewmodel:LobbyViewModel>
 </ResourceDictionary>

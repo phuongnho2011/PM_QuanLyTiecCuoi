@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:WeddingApp"
              d:DesignHeight="600" d:DesignWidth="1200"
              mc:Ignorable="d">
-    <Grid Background="White">
+    <Grid Background="#EDE7F6">
         <StackPanel>
             <Grid Height="85" Margin="0,0,-0.4,0" >
                 <materialDesign:ColorZone Mode="PrimaryDark" CornerRadius="3" 
@@ -23,13 +23,19 @@
             <DockPanel>
                 <!--SelectFood-->
                 <StackPanel  Margin="60 10 10 10" Width="250">
-                    <DatePicker materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <ComboBox materialDesign:HintAssist.Hint="Chon Tiec Cuoi"  Margin="6 0 8 0">
+                        <ComboBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </ComboBox.ItemsPanel>
+                    </ComboBox>
                     <Border BorderBrush="Black" BorderThickness="2" Margin="5 30 5 5">
                         <StackPanel DataContext="{StaticResource FoodVM}">
                             <TextBlock Text="SelectFood" Margin="8,8,151,0" Background="DarkCyan" TextAlignment="Center"></TextBlock>
                             <ComboBox materialDesign:HintAssist.Hint="FoodName" materialDesign:HintAssist.HintOpacity=".26" HorizontalAlignment="Left" Width="218" Margin="8,8,0,8" DisplayMemberPath="TENMON" ItemsSource="{Binding List}" ></ComboBox>
                             <DockPanel>
-                                <ComboBox materialDesign:HintAssist.Hint="Loai" IsEditable="True" materialDesign:HintAssist.HintOpacity=".26" HorizontalAlignment="Left" Margin="8,8,0,8" Width="110" DisplayMemberPath="TENLOAI" ItemsSource="{Binding ListLoai}"/>
+                                <ComboBox materialDesign:HintAssist.Hint="Loai" IsEditable="True" materialDesign:HintAssist.HintOpacity=".26" HorizontalAlignment="Left" Margin="8,8,0,8" Width="110" DisplayMemberPath="TENLOAI" ItemsSource="{Binding ListLoai}"></ComboBox>
                                 <TextBox materialDesign:HintAssist.Hint="Số Lượng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 9" Width="95" />
                             </DockPanel>
                             <StackPanel>

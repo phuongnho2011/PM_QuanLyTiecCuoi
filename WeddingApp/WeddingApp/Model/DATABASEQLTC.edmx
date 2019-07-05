@@ -76,6 +76,19 @@
           <Property Name="GHICHU" Type="nvarchar" MaxLength="1024" />
           <Property Name="IDLOAI" Type="int" />
         </EntityType>
+        <EntityType Name="SANH">
+          <Key>
+            <PropertyRef Name="IDSANH" />
+          </Key>
+          <Property Name="IDSANH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENSANH" Type="nvarchar" MaxLength="255" />
+          <Property Name="LOAISANH" Type="nvarchar" MaxLength="255" />
+          <Property Name="SLBANTOIDA" Type="int" />
+          <Property Name="DGBANTOITHIEU" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="GHICHU" Type="nvarchar(max)" />
+          <Property Name="TRANGTHAI" Type="bit" />
+          <Property Name="IDTIECCUOI" Type="int" />
+        </EntityType>
         <EntityType Name="SUDUNGDV">
           <Key>
             <PropertyRef Name="IDDV" />
@@ -178,6 +191,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__SANH__IDTIECCUOI__5DCAEF64">
+          <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
+          <End Role="SANH" Type="Self.SANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIECCUOI">
+              <PropertyRef Name="IDTC" />
+            </Principal>
+            <Dependent Role="SANH">
+              <PropertyRef Name="IDTIECCUOI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__THUCDON__IDTIECC__3D5E1FD2">
           <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
           <End Role="THUCDON" Type="Self.THUCDON" Multiplicity="*" />
@@ -222,6 +247,7 @@
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOAIMA" EntityType="Self.LOAIMA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MONAN" EntityType="Self.MONAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SANH" EntityType="Self.SANH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SUDUNGDV" EntityType="Self.SUDUNGDV" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THUCDON" EntityType="Self.THUCDON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THUCDON_MONAN" EntityType="Self.THUCDON_MONAN" Schema="dbo" store:Type="Tables" />
@@ -243,6 +269,10 @@
           <AssociationSet Name="FK__MONAN__IDLOAI__4222D4EF" Association="Self.FK__MONAN__IDLOAI__4222D4EF">
             <End Role="LOAIMA" EntitySet="LOAIMA" />
             <End Role="MONAN" EntitySet="MONAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANH__IDTIECCUOI__5DCAEF64" Association="Self.FK__SANH__IDTIECCUOI__5DCAEF64">
+            <End Role="TIECCUOI" EntitySet="TIECCUOI" />
+            <End Role="SANH" EntitySet="SANH" />
           </AssociationSet>
           <AssociationSet Name="FK__THUCDON__IDTIECC__3D5E1FD2" Association="Self.FK__THUCDON__IDTIECC__3D5E1FD2">
             <End Role="TIECCUOI" EntitySet="TIECCUOI" />
@@ -302,6 +332,11 @@
           <AssociationSet Name="FK__Users__IdRole__571DF1D5" Association="SQLQLTCModel.FK__Users__IdRole__571DF1D5">
             <End Role="UserRole" EntitySet="UserRoles" />
             <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="SANHs" EntityType="SQLQLTCModel.SANH" />
+          <AssociationSet Name="FK__DSSANH__IDTIECCU__59FA5E80" Association="SQLQLTCModel.FK__DSSANH__IDTIECCU__59FA5E80">
+            <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
+            <End Role="SANH" EntitySet="SANHs" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BAOCAOTHANG">
@@ -423,6 +458,7 @@
           <NavigationProperty Name="HOPDONGs" Relationship="SQLQLTCModel.FK__HOPDONG__ID_TIEC__49C3F6B7" FromRole="TIECCUOI" ToRole="HOPDONG" />
           <NavigationProperty Name="KHACHHANG" Relationship="SQLQLTCModel.FK__TIECCUOI__IDKHAC__398D8EEE" FromRole="TIECCUOI" ToRole="KHACHHANG" />
           <NavigationProperty Name="THUCDONs" Relationship="SQLQLTCModel.FK__THUCDON__IDTIECC__3D5E1FD2" FromRole="TIECCUOI" ToRole="THUCDON" />
+          <NavigationProperty Name="SANHs" Relationship="SQLQLTCModel.FK__DSSANH__IDTIECCU__59FA5E80" FromRole="TIECCUOI" ToRole="SANH" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -524,6 +560,32 @@
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SANH">
+          <Key>
+            <PropertyRef Name="IDSANH" />
+          </Key>
+          <Property Name="IDSANH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENSANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LOAISANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SLBANTOIDA" Type="Int32" />
+          <Property Name="DGBANTOITHIEU" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDTIECCUOI" Type="Int32" />
+          <NavigationProperty Name="TIECCUOI" Relationship="SQLQLTCModel.FK__DSSANH__IDTIECCU__59FA5E80" FromRole="SANH" ToRole="TIECCUOI" />
+          <Property Name="TRANGTHAI" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK__DSSANH__IDTIECCU__59FA5E80">
+          <End Type="SQLQLTCModel.TIECCUOI" Role="TIECCUOI" Multiplicity="0..1" />
+          <End Type="SQLQLTCModel.SANH" Role="SANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIECCUOI">
+              <PropertyRef Name="IDTC" />
+            </Principal>
+            <Dependent Role="SANH">
+              <PropertyRef Name="IDTIECCUOI" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -666,6 +728,20 @@
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
                 <ScalarProperty Name="IDUS" ColumnName="IDUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SANHs">
+            <EntityTypeMapping TypeName="SQLQLTCModel.SANH">
+              <MappingFragment StoreEntitySet="SANH">
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="IDTIECCUOI" ColumnName="IDTIECCUOI" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="DGBANTOITHIEU" ColumnName="DGBANTOITHIEU" />
+                <ScalarProperty Name="SLBANTOIDA" ColumnName="SLBANTOIDA" />
+                <ScalarProperty Name="LOAISANH" ColumnName="LOAISANH" />
+                <ScalarProperty Name="TENSANH" ColumnName="TENSANH" />
+                <ScalarProperty Name="IDSANH" ColumnName="IDSANH" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

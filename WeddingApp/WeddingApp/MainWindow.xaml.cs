@@ -52,6 +52,10 @@ namespace WeddingApp
                     usc = new BookingManage();
                     GridMain.Children.Add(usc);
                     break;
+                case "LobbyManage":
+                    usc = new LobbyWindow();
+                    GridMain.Children.Add(usc);
+                    break;
                 default:
                     break;
             }

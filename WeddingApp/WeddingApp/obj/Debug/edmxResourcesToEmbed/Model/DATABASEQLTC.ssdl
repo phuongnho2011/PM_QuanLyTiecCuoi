@@ -71,6 +71,19 @@
     <Property Name="GHICHU" Type="nvarchar" MaxLength="1024" />
     <Property Name="IDLOAI" Type="int" />
   </EntityType>
+  <EntityType Name="SANH">
+    <Key>
+      <PropertyRef Name="IDSANH" />
+    </Key>
+    <Property Name="IDSANH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENSANH" Type="nvarchar" MaxLength="255" />
+    <Property Name="LOAISANH" Type="nvarchar" MaxLength="255" />
+    <Property Name="SLBANTOIDA" Type="int" />
+    <Property Name="DGBANTOITHIEU" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="GHICHU" Type="nvarchar(max)" />
+    <Property Name="TRANGTHAI" Type="bit" />
+    <Property Name="IDTIECCUOI" Type="int" />
+  </EntityType>
   <EntityType Name="SUDUNGDV">
     <Key>
       <PropertyRef Name="IDDV" />
@@ -173,6 +186,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__SANH__IDTIECCUOI__5DCAEF64">
+    <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
+    <End Role="SANH" Type="Self.SANH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIECCUOI">
+        <PropertyRef Name="IDTC" />
+      </Principal>
+      <Dependent Role="SANH">
+        <PropertyRef Name="IDTIECCUOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__THUCDON__IDTIECC__3D5E1FD2">
     <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
     <End Role="THUCDON" Type="Self.THUCDON" Multiplicity="*" />
@@ -217,6 +242,7 @@
     <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAIMA" EntityType="Self.LOAIMA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MONAN" EntityType="Self.MONAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SANH" EntityType="Self.SANH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SUDUNGDV" EntityType="Self.SUDUNGDV" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THUCDON" EntityType="Self.THUCDON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THUCDON_MONAN" EntityType="Self.THUCDON_MONAN" Schema="dbo" store:Type="Tables" />
@@ -238,6 +264,10 @@
     <AssociationSet Name="FK__MONAN__IDLOAI__4222D4EF" Association="Self.FK__MONAN__IDLOAI__4222D4EF">
       <End Role="LOAIMA" EntitySet="LOAIMA" />
       <End Role="MONAN" EntitySet="MONAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SANH__IDTIECCUOI__5DCAEF64" Association="Self.FK__SANH__IDTIECCUOI__5DCAEF64">
+      <End Role="TIECCUOI" EntitySet="TIECCUOI" />
+      <End Role="SANH" EntitySet="SANH" />
     </AssociationSet>
     <AssociationSet Name="FK__THUCDON__IDTIECC__3D5E1FD2" Association="Self.FK__THUCDON__IDTIECC__3D5E1FD2">
       <End Role="TIECCUOI" EntitySet="TIECCUOI" />

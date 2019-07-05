@@ -42,6 +42,11 @@
       <End Role="UserRole" EntitySet="UserRoles" />
       <End Role="User" EntitySet="Users" />
     </AssociationSet>
+    <EntitySet Name="SANHs" EntityType="SQLQLTCModel.SANH" />
+    <AssociationSet Name="FK__DSSANH__IDTIECCU__59FA5E80" Association="SQLQLTCModel.FK__DSSANH__IDTIECCU__59FA5E80">
+      <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
+      <End Role="SANH" EntitySet="SANHs" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="BAOCAOTHANG">
     <Key>
@@ -162,6 +167,7 @@
     <NavigationProperty Name="HOPDONGs" Relationship="SQLQLTCModel.FK__HOPDONG__ID_TIEC__49C3F6B7" FromRole="TIECCUOI" ToRole="HOPDONG" />
     <NavigationProperty Name="KHACHHANG" Relationship="SQLQLTCModel.FK__TIECCUOI__IDKHAC__398D8EEE" FromRole="TIECCUOI" ToRole="KHACHHANG" />
     <NavigationProperty Name="THUCDONs" Relationship="SQLQLTCModel.FK__THUCDON__IDTIECC__3D5E1FD2" FromRole="TIECCUOI" ToRole="THUCDON" />
+    <NavigationProperty Name="SANHs" Relationship="SQLQLTCModel.FK__DSSANH__IDTIECCU__59FA5E80" FromRole="TIECCUOI" ToRole="SANH" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
@@ -263,6 +269,32 @@
       </Principal>
       <Dependent Role="User">
         <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SANH">
+    <Key>
+      <PropertyRef Name="IDSANH" />
+    </Key>
+    <Property Name="IDSANH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENSANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LOAISANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SLBANTOIDA" Type="Int32" />
+    <Property Name="DGBANTOITHIEU" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IDTIECCUOI" Type="Int32" />
+    <NavigationProperty Name="TIECCUOI" Relationship="SQLQLTCModel.FK__DSSANH__IDTIECCU__59FA5E80" FromRole="SANH" ToRole="TIECCUOI" />
+    <Property Name="TRANGTHAI" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK__DSSANH__IDTIECCU__59FA5E80">
+    <End Type="SQLQLTCModel.TIECCUOI" Role="TIECCUOI" Multiplicity="0..1" />
+    <End Type="SQLQLTCModel.SANH" Role="SANH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIECCUOI">
+        <PropertyRef Name="IDTC" />
+      </Principal>
+      <Dependent Role="SANH">
+        <PropertyRef Name="IDTIECCUOI" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

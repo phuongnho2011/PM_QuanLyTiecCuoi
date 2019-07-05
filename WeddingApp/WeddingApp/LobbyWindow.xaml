@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="WeddingApp.LobbyWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:WeddingApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1200"
+             DataContext="{StaticResource LobbyWindow}">
+    <Grid Background="#EDE7F6" Margin="28 28 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--các element binding từ selected item-->
+        <materialDesign:Card Grid.Row="0" Margin="5">
+            <WrapPanel Margin="0 0 0 10">
+                <TextBox Text="{Binding TENSANH, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="TEN SANH" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <ComboBox Margin="5 5 15 5" DisplayMemberPath="TENLOAI" ItemsSource="{Binding ListLoai}" SelectedItem="{Binding LOAIMA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Style" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                <TextBox Text="{Binding DONGIA, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Price" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding GHICHU, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Note" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="1" Margin="5">
+            <WrapPanel>
+                <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="TENMON" DisplayMemberBinding="{Binding TENMON}"></GridViewColumn>
+                            <GridViewColumn Header="LOAI" DisplayMemberBinding="{Binding LOAIMA.TENLOAI}"></GridViewColumn>
+                            <GridViewColumn Header="DONGIA" DisplayMemberBinding="{Binding DONGIA}"></GridViewColumn>
+                            <GridViewColumn Header="GHICHU" DisplayMemberBinding="{Binding GHICHU}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

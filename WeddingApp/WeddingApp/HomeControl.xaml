@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:WeddingApp"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1200">
-    <Grid Background="WhiteSmoke">
+    <Grid Background="#EDE7F6">
         <StackPanel Orientation="Horizontal" Margin="80,50,0,0">
             <Grid Width="300">
                 <StackPanel>
@@ -102,7 +102,20 @@
                 </StackPanel>
             </Grid>
             <Grid Width="500">
-                
+                <materialDesign:Card Margin="8 0 8 8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <ScrollViewer>
+                        <ListView>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Khach Hang" ></GridViewColumn>
+                                    <GridViewColumn Header="Tiec Cuoi"></GridViewColumn>
+                                    <GridViewColumn Header="Ngay Dai"></GridViewColumn>
+                                    <GridViewColumn Header="Sanh"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </ScrollViewer>
+                </materialDesign:Card>
             </Grid>
         </StackPanel>
     </Grid>

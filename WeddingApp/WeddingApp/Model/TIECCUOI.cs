@@ -19,6 +19,7 @@ namespace WeddingApp.Model
         {
             this.HOPDONGs = new HashSet<HOPDONG>();
             this.THUCDONs = new HashSet<THUCDON>();
+            this.SANHs = new HashSet<SANH>();
         }
     
         public int IDTC { get; set; }
@@ -33,5 +34,7 @@ namespace WeddingApp.Model
         public virtual KHACHHANG KHACHHANG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THUCDON> THUCDONs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SANH> SANHs { get; set; }
     }
 }

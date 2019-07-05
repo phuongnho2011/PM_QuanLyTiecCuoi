@@ -12,7 +12,7 @@ namespace WeddingApp.Model
     using System;
     using System.Collections.Generic;
     using WeddingApp.ViewModel;
-    
+
     public partial class LOAIMA : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +21,9 @@ namespace WeddingApp.Model
             this.MONANs = new HashSet<MONAN>();
         }
     
-        private int _IDLOAI { get; set; }
+        public int _IDLOAI { get; set; }
         public int IDLOAI { get => _IDLOAI; set { _IDLOAI = value; OnPropertyChanged(); } }
-        private string _TENLOAI;
+        public string _TENLOAI { get; set; }
         public string TENLOAI { get => _TENLOAI; set { _TENLOAI = value; OnPropertyChanged(); } }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

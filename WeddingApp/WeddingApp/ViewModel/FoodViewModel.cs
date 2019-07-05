@@ -80,7 +80,7 @@ namespace WeddingApp.ViewModel
             
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if(LOAIMA == null || SelectedItem == null)
+                if(string.IsNullOrEmpty(TENMON) || LOAIMA == null)
                     return false;
                 var displayList = DataProvider.Ins.DB.MONANs.Where(x => x.TENMON == TENMON);
                 if (displayList == null || displayList.Count() != 0)
@@ -116,7 +116,6 @@ namespace WeddingApp.ViewModel
                 monan.GHICHU = GHICHU;
                 DataProvider.Ins.DB.SaveChanges();
 
-                SelectedItem.TENMON = TENMON;
                 SelectedItem.TENMON = TENMON;
                 SelectedItem.LOAIMA = LOAIMA;
                 SelectedItem.DONGIA = DONGIA;

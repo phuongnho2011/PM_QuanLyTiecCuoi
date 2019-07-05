@@ -11,7 +11,6 @@ namespace WeddingApp.Model
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using WeddingApp.ViewModel;
 
     public partial class MONAN : BaseViewModel
@@ -32,6 +31,6 @@ namespace WeddingApp.Model
         public Nullable<int> IDLOAI { get => _IDLOAI; set { _IDLOAI = value; OnPropertyChanged(); } }
 
         private LOAIMA _LOAIMA;
-        public virtual LOAIMA LOAIMA { get => _LOAIMA; set { _LOAIMA = value; OnPropertyChanged(); } }        
+        public virtual LOAIMA LOAIMA { get => _LOAIMA; set { _LOAIMA = value; OnPropertyChanged(); } }
     }
 }

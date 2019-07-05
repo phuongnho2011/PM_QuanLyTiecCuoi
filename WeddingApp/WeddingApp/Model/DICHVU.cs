@@ -14,8 +14,7 @@ namespace WeddingApp.Model
     using WeddingApp.ViewModel;
 
     public partial class DICHVU : BaseViewModel
-    {     
-
+    {
         private int _IDDV;
         public int IDDV { get => _IDDV; set { _IDDV = value; OnPropertyChanged(); } }
 
