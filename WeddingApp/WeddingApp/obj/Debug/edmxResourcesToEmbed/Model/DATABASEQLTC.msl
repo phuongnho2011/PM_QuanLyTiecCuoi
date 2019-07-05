@@ -140,14 +140,22 @@
     <EntitySetMapping Name="SANHs">
       <EntityTypeMapping TypeName="SQLQLTCModel.SANH">
         <MappingFragment StoreEntitySet="SANH">
+          <ScalarProperty Name="IDLOAI" ColumnName="IDLOAI" />
           <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
           <ScalarProperty Name="IDTIECCUOI" ColumnName="IDTIECCUOI" />
           <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-          <ScalarProperty Name="DGBANTOITHIEU" ColumnName="DGBANTOITHIEU" />
           <ScalarProperty Name="SLBANTOIDA" ColumnName="SLBANTOIDA" />
-          <ScalarProperty Name="LOAISANH" ColumnName="LOAISANH" />
           <ScalarProperty Name="TENSANH" ColumnName="TENSANH" />
           <ScalarProperty Name="IDSANH" ColumnName="IDSANH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAISANHs">
+      <EntityTypeMapping TypeName="SQLQLTCModel.LOAISANH">
+        <MappingFragment StoreEntitySet="LOAISANH">
+          <ScalarProperty Name="DGBANTOITHIEU" ColumnName="DGBANTOITHIEU" />
+          <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+          <ScalarProperty Name="IDLOAISANH" ColumnName="IDLOAISANH" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

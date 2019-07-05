@@ -9,40 +9,86 @@
              d:DesignHeight="600" d:DesignWidth="1200"
              DataContext="{StaticResource LobbyWindow}">
     <Grid Background="#EDE7F6" Margin="28 28 0 0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <!--các element binding từ selected item-->
-        <materialDesign:Card Grid.Row="0" Margin="5">
-            <WrapPanel Margin="0 0 0 10">
-                <TextBox Text="{Binding TENSANH, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="TEN SANH" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <ComboBox Margin="5 5 15 5" DisplayMemberPath="TENLOAI" ItemsSource="{Binding ListLoai}" SelectedItem="{Binding LOAIMA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Style" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
-                <TextBox Text="{Binding DONGIA, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Price" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding GHICHU, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Note" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-            </WrapPanel>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="1" Margin="5">
-            <WrapPanel>
-                <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
-                <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
-                <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
-            </WrapPanel>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="TENMON" DisplayMemberBinding="{Binding TENMON}"></GridViewColumn>
-                            <GridViewColumn Header="LOAI" DisplayMemberBinding="{Binding LOAIMA.TENLOAI}"></GridViewColumn>
-                            <GridViewColumn Header="DONGIA" DisplayMemberBinding="{Binding DONGIA}"></GridViewColumn>
-                            <GridViewColumn Header="GHICHU" DisplayMemberBinding="{Binding GHICHU}"></GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </ScrollViewer>
-        </materialDesign:Card>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!--các element binding từ selected item-->
+                <materialDesign:Card Grid.Row="0" Margin="5">
+                    <WrapPanel Margin="0 0 0 10">
+                        <TextBox Text="{Binding TENMON, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Food Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <ComboBox Margin="5 5 15 5" DisplayMemberPath="TENLOAI" ItemsSource="{Binding ListLoai}" SelectedItem="{Binding LOAIMA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Style" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                        <TextBox Text="{Binding DONGIA, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Price" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <TextBox Text="{Binding GHICHU, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Note" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    </WrapPanel>
+                </materialDesign:Card>
+
+                <materialDesign:Card Grid.Row="1" Margin="5">
+                    <WrapPanel>
+                        <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                        <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                        <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                    </WrapPanel>
+                </materialDesign:Card>
+                <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="TENMON" DisplayMemberBinding="{Binding TENMON}"></GridViewColumn>
+                                    <GridViewColumn Header="LOAI" DisplayMemberBinding="{Binding LOAIMA.TENLOAI}"></GridViewColumn>
+                                    <GridViewColumn Header="DONGIA" DisplayMemberBinding="{Binding DONGIA}"></GridViewColumn>
+                                    <GridViewColumn Header="GHICHU" DisplayMemberBinding="{Binding GHICHU}"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </ScrollViewer>
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" ></RowDefinition>
+                    <RowDefinition Height="auto" ></RowDefinition>
+                    <RowDefinition Height="auto" ></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <materialDesign:ColorZone  Mode="PrimaryLight" Padding="16" Margin="5" Height="50" Grid.Row="0">
+                    <TextBlock Text="Quản lý loại thức ăn" ></TextBlock>
+                </materialDesign:ColorZone>
+                <materialDesign:Card Margin="5,5,5,5" Height="61" Grid.Row="1">
+                    <TextBox Text="{Binding TENLOAI , UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Loại Thức Ăn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="50" />
+                </materialDesign:Card>
+                <materialDesign:Card Grid.Row="2" Margin="5" Height="47">
+                    <WrapPanel Margin="2">
+                        <Button Margin="5" Width="45" Command="{Binding ThemLoai}">
+                            <materialDesign:PackIcon Kind="Plus" />
+                        </Button>
+                        <Button Margin="5" Width="45" Command="{Binding XoaLoai}">
+                            <materialDesign:PackIcon Kind="Minus" />
+                        </Button>
+                        <Button Margin="5" Width="45" Command="{Binding SuaLoai}">
+                            <materialDesign:PackIcon Kind="FindReplace" />
+                        </Button>
+                    </WrapPanel>
+                </materialDesign:Card>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5" Grid.Row="3">
+                    <ListView ItemsSource="{Binding ListLoai}" SelectedItem="{Binding SelectedItemLoai, Mode=OneWayToSource}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Tên Loại"  DisplayMemberBinding="{Binding TENLOAI}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

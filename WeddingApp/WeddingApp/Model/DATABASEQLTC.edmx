@@ -66,6 +66,14 @@
           <Property Name="IDLOAI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENLOAI" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="LOAISANH">
+          <Key>
+            <PropertyRef Name="IDLOAISANH" />
+          </Key>
+          <Property Name="IDLOAISANH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENLOAI" Type="nvarchar(max)" />
+          <Property Name="DGBANTOITHIEU" Type="decimal" Precision="19" Scale="4" />
+        </EntityType>
         <EntityType Name="MONAN">
           <Key>
             <PropertyRef Name="IDMA" />
@@ -82,12 +90,11 @@
           </Key>
           <Property Name="IDSANH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENSANH" Type="nvarchar" MaxLength="255" />
-          <Property Name="LOAISANH" Type="nvarchar" MaxLength="255" />
           <Property Name="SLBANTOIDA" Type="int" />
-          <Property Name="DGBANTOITHIEU" Type="decimal" Precision="19" Scale="4" />
           <Property Name="GHICHU" Type="nvarchar(max)" />
           <Property Name="TRANGTHAI" Type="bit" />
           <Property Name="IDTIECCUOI" Type="int" />
+          <Property Name="IDLOAI" Type="int" />
         </EntityType>
         <EntityType Name="SUDUNGDV">
           <Key>
@@ -191,7 +198,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SANH__IDTIECCUOI__5DCAEF64">
+        <Association Name="FK__SANH__IDLOAI__797309D9">
+          <End Role="LOAISANH" Type="Self.LOAISANH" Multiplicity="0..1" />
+          <End Role="SANH" Type="Self.SANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAISANH">
+              <PropertyRef Name="IDLOAISANH" />
+            </Principal>
+            <Dependent Role="SANH">
+              <PropertyRef Name="IDLOAI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SANH__IDTIECCUOI__787EE5A0">
           <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
           <End Role="SANH" Type="Self.SANH" Multiplicity="*" />
           <ReferentialConstraint>
@@ -246,6 +265,7 @@
           <EntitySet Name="HOPDONG" EntityType="Self.HOPDONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOAIMA" EntityType="Self.LOAIMA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAISANH" EntityType="Self.LOAISANH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MONAN" EntityType="Self.MONAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SANH" EntityType="Self.SANH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SUDUNGDV" EntityType="Self.SUDUNGDV" Schema="dbo" store:Type="Tables" />
@@ -270,7 +290,11 @@
             <End Role="LOAIMA" EntitySet="LOAIMA" />
             <End Role="MONAN" EntitySet="MONAN" />
           </AssociationSet>
-          <AssociationSet Name="FK__SANH__IDTIECCUOI__5DCAEF64" Association="Self.FK__SANH__IDTIECCUOI__5DCAEF64">
+          <AssociationSet Name="FK__SANH__IDLOAI__797309D9" Association="Self.FK__SANH__IDLOAI__797309D9">
+            <End Role="LOAISANH" EntitySet="LOAISANH" />
+            <End Role="SANH" EntitySet="SANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANH__IDTIECCUOI__787EE5A0" Association="Self.FK__SANH__IDTIECCUOI__787EE5A0">
             <End Role="TIECCUOI" EntitySet="TIECCUOI" />
             <End Role="SANH" EntitySet="SANH" />
           </AssociationSet>
@@ -336,6 +360,11 @@
           <EntitySet Name="SANHs" EntityType="SQLQLTCModel.SANH" />
           <AssociationSet Name="FK__DSSANH__IDTIECCU__59FA5E80" Association="SQLQLTCModel.FK__DSSANH__IDTIECCU__59FA5E80">
             <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
+            <End Role="SANH" EntitySet="SANHs" />
+          </AssociationSet>
+          <EntitySet Name="LOAISANHs" EntityType="SQLQLTCModel.LOAISANH" />
+          <AssociationSet Name="FK__SANH__IDLOAI__75A278F5" Association="SQLQLTCModel.FK__SANH__IDLOAI__75A278F5">
+            <End Role="LOAISANH" EntitySet="LOAISANHs" />
             <End Role="SANH" EntitySet="SANHs" />
           </AssociationSet>
         </EntityContainer>
@@ -569,13 +598,13 @@
           </Key>
           <Property Name="IDSANH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENSANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="LOAISANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="SLBANTOIDA" Type="Int32" />
-          <Property Name="DGBANTOITHIEU" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IDTIECCUOI" Type="Int32" />
           <NavigationProperty Name="TIECCUOI" Relationship="SQLQLTCModel.FK__DSSANH__IDTIECCU__59FA5E80" FromRole="SANH" ToRole="TIECCUOI" />
           <Property Name="TRANGTHAI" Type="Boolean" />
+          <Property Name="IDLOAI" Type="Int32" />
+          <NavigationProperty Name="LOAISANH" Relationship="SQLQLTCModel.FK__SANH__IDLOAI__75A278F5" FromRole="SANH" ToRole="LOAISANH" />
         </EntityType>
         <Association Name="FK__DSSANH__IDTIECCU__59FA5E80">
           <End Type="SQLQLTCModel.TIECCUOI" Role="TIECCUOI" Multiplicity="0..1" />
@@ -586,6 +615,27 @@
             </Principal>
             <Dependent Role="SANH">
               <PropertyRef Name="IDTIECCUOI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LOAISANH">
+          <Key>
+            <PropertyRef Name="IDLOAISANH" />
+          </Key>
+          <Property Name="IDLOAISANH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENLOAI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DGBANTOITHIEU" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="SANHs" Relationship="SQLQLTCModel.FK__SANH__IDLOAI__75A278F5" FromRole="LOAISANH" ToRole="SANH" />
+        </EntityType>
+        <Association Name="FK__SANH__IDLOAI__75A278F5">
+          <End Type="SQLQLTCModel.LOAISANH" Role="LOAISANH" Multiplicity="0..1" />
+          <End Type="SQLQLTCModel.SANH" Role="SANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAISANH">
+              <PropertyRef Name="IDLOAISANH" />
+            </Principal>
+            <Dependent Role="SANH">
+              <PropertyRef Name="IDLOAI" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -734,14 +784,22 @@
           <EntitySetMapping Name="SANHs">
             <EntityTypeMapping TypeName="SQLQLTCModel.SANH">
               <MappingFragment StoreEntitySet="SANH">
+                <ScalarProperty Name="IDLOAI" ColumnName="IDLOAI" />
                 <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
                 <ScalarProperty Name="IDTIECCUOI" ColumnName="IDTIECCUOI" />
                 <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-                <ScalarProperty Name="DGBANTOITHIEU" ColumnName="DGBANTOITHIEU" />
                 <ScalarProperty Name="SLBANTOIDA" ColumnName="SLBANTOIDA" />
-                <ScalarProperty Name="LOAISANH" ColumnName="LOAISANH" />
                 <ScalarProperty Name="TENSANH" ColumnName="TENSANH" />
                 <ScalarProperty Name="IDSANH" ColumnName="IDSANH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAISANHs">
+            <EntityTypeMapping TypeName="SQLQLTCModel.LOAISANH">
+              <MappingFragment StoreEntitySet="LOAISANH">
+                <ScalarProperty Name="DGBANTOITHIEU" ColumnName="DGBANTOITHIEU" />
+                <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+                <ScalarProperty Name="IDLOAISANH" ColumnName="IDLOAISANH" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

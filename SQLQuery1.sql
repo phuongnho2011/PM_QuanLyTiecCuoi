@@ -122,15 +122,21 @@ CREATE TABLE Users (
 )
 GO
 
+CREATE TABLE LOAISANH (
+	IDLOAISANH int identity(1,1) primary key not null,
+	TENLOAI nvarchar(max),
+    DGBANTOITHIEU DECIMAL(19,4)											
+)
+GO
+
 CREATE TABLE SANH (
 	IDSANH int identity(1,1) primary key not null,
-	TENSANH nvarchar(255),
-	LOAISANH nvarchar(255),
-	SLBANTOIDA int,
-	DGBANTOITHIEU DECIMAL(19,4),
+	TENSANH nvarchar(255),	
+	SLBANTOIDA int,	
 	GHICHU nvarchar(max),
 	TRANGTHAI bit,
-	IDTIECCUOI int FOREIGN KEY (idtieccuoi) REFERENCES dbo.TIECCUOI(IDTC)
+	IDTIECCUOI int FOREIGN KEY (idtieccuoi) REFERENCES dbo.TIECCUOI(IDTC),
+	IDLOAI int FOREIGN KEY (idloai) REFERENCES dbo.LOAISANH(IDLOAISANH)
 )
 GO
 

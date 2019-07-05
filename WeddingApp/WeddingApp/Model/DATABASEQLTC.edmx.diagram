@@ -27,6 +27,8 @@
         <AssociationConnector Association="SQLQLTCModel.FK__Users__IdRole__571DF1D5" />
         <EntityTypeShape EntityType="SQLQLTCModel.SANH" Width="1.5" PointX="5.875" PointY="10.875" />
         <AssociationConnector Association="SQLQLTCModel.FK__DSSANH__IDTIECCU__59FA5E80" />
+        <EntityTypeShape EntityType="SQLQLTCModel.LOAISANH" Width="1.5" PointX="0.75" PointY="11.875" />
+        <AssociationConnector Association="SQLQLTCModel.FK__SANH__IDLOAI__75A278F5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

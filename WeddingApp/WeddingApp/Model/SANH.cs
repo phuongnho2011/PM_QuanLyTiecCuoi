@@ -17,12 +17,9 @@ namespace WeddingApp.Model
     {
         public int _IDSANH { get; set; }
         public int IDSANH { get => _IDSANH; set { _IDSANH = value; OnPropertyChanged(); } }
-    
+
         public string _TENSANH { get; set; }
         public string TENSANH { get => _TENSANH; set { _TENSANH = value; OnPropertyChanged(); } }
-
-        public string _LOAISANH { get; set; }
-        public string LOAISANH { get => _LOAISANH; set { _LOAISANH= value; OnPropertyChanged(); } }
 
         public Nullable<int> _SLBANTOIDA { get; set; }
         public Nullable<int> SLBANTOIDA { get => _SLBANTOIDA; set { _SLBANTOIDA = value; OnPropertyChanged(); } }
@@ -41,5 +38,11 @@ namespace WeddingApp.Model
 
         public virtual TIECCUOI _TIECCUOI { get; set; }
         public virtual TIECCUOI TIECCUOI { get => _TIECCUOI; set { _TIECCUOI = value; OnPropertyChanged(); } }
+
+        public Nullable<int> _IDLOAI { get; set; }
+        public Nullable<int> IDLOAI { get => _IDLOAI; set { _IDLOAI = value; OnPropertyChanged(); } }
+
+        public virtual LOAISANH _LOAISANH { get; set; }
+        public virtual LOAISANH LOAISANH { get => _LOAISANH; set { _LOAISANH = value; OnPropertyChanged(); } }
     }
 }

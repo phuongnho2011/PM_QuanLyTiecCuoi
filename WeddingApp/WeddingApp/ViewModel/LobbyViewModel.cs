@@ -29,24 +29,71 @@ namespace WeddingApp.ViewModel
                 if (SelectedItem != null)
                 {
                     TENSANH = SelectedItem.TENSANH;
-                    LOAISANH = SelectedItem.LOAISANH;
                     SLBANTOIDA = SelectedItem.SLBANTOIDA;
-                    DGBANTOITHIEU = SelectedItem.DGBANTOITHIEU;
                     GHICHU = SelectedItem.GHICHU;
                     TIECCUOI = SelectedItem.TIECCUOI;
                     TRANGTHAI = SelectedItem.TRANGTHAI;
+                    LOAISANH = SelectedItem.LOAISANH;
                 }
             }
         }
 
-        public string TENSANH { get; set; }
-        public string LOAISANH { get; set; }
-        public Nullable<int> SLBANTOIDA { get; set; }
-        public Nullable<decimal> DGBANTOITHIEU { get; set; }
-        public string GHICHU { get; set; }
-        public Nullable<int> IDTIECCUOI { get; set; }
-        public Nullable<bool> TRANGTHAI { get; set; }
-        public virtual TIECCUOI TIECCUOI { get; set; }
+        public int _IDSANH { get; set; }
+        public int IDSANH { get => _IDSANH; set { _IDSANH = value; OnPropertyChanged(); } }
+
+        public string _TENSANH { get; set; }
+        public string TENSANH { get => _TENSANH; set { _TENSANH = value; OnPropertyChanged(); } }
+
+        public virtual LOAISANH _LOAISANH { get; set; }
+        public virtual LOAISANH LOAISANH { get => _LOAISANH; set { _LOAISANH = value; OnPropertyChanged(); } }
+
+        public Nullable<int> _SLBANTOIDA { get; set; }
+        public Nullable<int> SLBANTOIDA { get => _SLBANTOIDA; set { _SLBANTOIDA = value; OnPropertyChanged(); } }
+
+        public string _GHICHU { get; set; }
+        public string GHICHU { get => _GHICHU; set { _GHICHU = value; OnPropertyChanged(); } }
+
+        public Nullable<int> _IDTIECCUOI { get; set; }
+        public Nullable<int> IDTIECCUOI { get => _IDTIECCUOI; set { _IDTIECCUOI = value; OnPropertyChanged(); } }
+
+        public Nullable<bool> _TRANGTHAI { get; set; }
+        public Nullable<bool> TRANGTHAI { get => _TRANGTHAI; set { _TRANGTHAI = value; OnPropertyChanged(); } }
+
+        public virtual TIECCUOI _TIECCUOI { get; set; }
+        public virtual TIECCUOI TIECCUOI { get => _TIECCUOI; set { _TIECCUOI = value; OnPropertyChanged(); } }
+
+
+        // LOAI SANH AREA
+        private ObservableCollection<SANH> _ListLoaiSanh;
+        public ObservableCollection<SANH> ListLoaiSanh { get => _ListLoaiSanh; set { _ListLoaiSanh = value; OnPropertyChanged(); } }
+
+        public ICommand AddCommandL { get; set; }
+        public ICommand EditCommandL { get; set; }
+        public ICommand DeleteCommandL { get; set; }
+
+        private LOAISANH _SelectedItemL;
+        public LOAISANH SelectedItemL
+        {
+            get => _SelectedItemL;
+            set
+            {
+                _SelectedItemL = value;
+                OnPropertyChanged();
+                if (SelectedItemL != null)
+                {
+                    IDLOAISANH = SelectedItemL.IDLOAISANH;
+                    TENLOAI = SelectedItemL.TENLOAI;
+                    DGBANTOITHIEU = SelectedItemL.DGBANTOITHIEU;
+                }
+            }
+        }
+
+        public int _IDLOAISANH { get; set; }
+        public int IDLOAISANH { get => _IDLOAISANH; set { _IDLOAISANH = value; OnPropertyChanged(); } }
+        public string _TENLOAI { get; set; }
+        public string TENLOAI { get => _TENLOAI; set { _TENLOAI = value; OnPropertyChanged(); } }
+        public Nullable<decimal> _DGBANTOITHIEU { get; set; }
+        public Nullable<decimal> DGBANTOITHIEU { get => _DGBANTOITHIEU; set { _DGBANTOITHIEU = value; OnPropertyChanged(); } }
 
     }
 }

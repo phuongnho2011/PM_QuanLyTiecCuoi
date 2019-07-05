@@ -47,6 +47,11 @@
       <End Role="TIECCUOI" EntitySet="TIECCUOIs" />
       <End Role="SANH" EntitySet="SANHs" />
     </AssociationSet>
+    <EntitySet Name="LOAISANHs" EntityType="SQLQLTCModel.LOAISANH" />
+    <AssociationSet Name="FK__SANH__IDLOAI__75A278F5" Association="SQLQLTCModel.FK__SANH__IDLOAI__75A278F5">
+      <End Role="LOAISANH" EntitySet="LOAISANHs" />
+      <End Role="SANH" EntitySet="SANHs" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="BAOCAOTHANG">
     <Key>
@@ -278,13 +283,13 @@
     </Key>
     <Property Name="IDSANH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TENSANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="LOAISANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="SLBANTOIDA" Type="Int32" />
-    <Property Name="DGBANTOITHIEU" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="IDTIECCUOI" Type="Int32" />
     <NavigationProperty Name="TIECCUOI" Relationship="SQLQLTCModel.FK__DSSANH__IDTIECCU__59FA5E80" FromRole="SANH" ToRole="TIECCUOI" />
     <Property Name="TRANGTHAI" Type="Boolean" />
+    <Property Name="IDLOAI" Type="Int32" />
+    <NavigationProperty Name="LOAISANH" Relationship="SQLQLTCModel.FK__SANH__IDLOAI__75A278F5" FromRole="SANH" ToRole="LOAISANH" />
   </EntityType>
   <Association Name="FK__DSSANH__IDTIECCU__59FA5E80">
     <End Type="SQLQLTCModel.TIECCUOI" Role="TIECCUOI" Multiplicity="0..1" />
@@ -295,6 +300,27 @@
       </Principal>
       <Dependent Role="SANH">
         <PropertyRef Name="IDTIECCUOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LOAISANH">
+    <Key>
+      <PropertyRef Name="IDLOAISANH" />
+    </Key>
+    <Property Name="IDLOAISANH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENLOAI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DGBANTOITHIEU" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="SANHs" Relationship="SQLQLTCModel.FK__SANH__IDLOAI__75A278F5" FromRole="LOAISANH" ToRole="SANH" />
+  </EntityType>
+  <Association Name="FK__SANH__IDLOAI__75A278F5">
+    <End Type="SQLQLTCModel.LOAISANH" Role="LOAISANH" Multiplicity="0..1" />
+    <End Type="SQLQLTCModel.SANH" Role="SANH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAISANH">
+        <PropertyRef Name="IDLOAISANH" />
+      </Principal>
+      <Dependent Role="SANH">
+        <PropertyRef Name="IDLOAI" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

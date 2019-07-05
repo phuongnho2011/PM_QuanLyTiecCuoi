@@ -61,6 +61,14 @@
     <Property Name="IDLOAI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENLOAI" Type="nvarchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="LOAISANH">
+    <Key>
+      <PropertyRef Name="IDLOAISANH" />
+    </Key>
+    <Property Name="IDLOAISANH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENLOAI" Type="nvarchar(max)" />
+    <Property Name="DGBANTOITHIEU" Type="decimal" Precision="19" Scale="4" />
+  </EntityType>
   <EntityType Name="MONAN">
     <Key>
       <PropertyRef Name="IDMA" />
@@ -77,12 +85,11 @@
     </Key>
     <Property Name="IDSANH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENSANH" Type="nvarchar" MaxLength="255" />
-    <Property Name="LOAISANH" Type="nvarchar" MaxLength="255" />
     <Property Name="SLBANTOIDA" Type="int" />
-    <Property Name="DGBANTOITHIEU" Type="decimal" Precision="19" Scale="4" />
     <Property Name="GHICHU" Type="nvarchar(max)" />
     <Property Name="TRANGTHAI" Type="bit" />
     <Property Name="IDTIECCUOI" Type="int" />
+    <Property Name="IDLOAI" Type="int" />
   </EntityType>
   <EntityType Name="SUDUNGDV">
     <Key>
@@ -186,7 +193,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SANH__IDTIECCUOI__5DCAEF64">
+  <Association Name="FK__SANH__IDLOAI__797309D9">
+    <End Role="LOAISANH" Type="Self.LOAISANH" Multiplicity="0..1" />
+    <End Role="SANH" Type="Self.SANH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAISANH">
+        <PropertyRef Name="IDLOAISANH" />
+      </Principal>
+      <Dependent Role="SANH">
+        <PropertyRef Name="IDLOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SANH__IDTIECCUOI__787EE5A0">
     <End Role="TIECCUOI" Type="Self.TIECCUOI" Multiplicity="0..1" />
     <End Role="SANH" Type="Self.SANH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -241,6 +260,7 @@
     <EntitySet Name="HOPDONG" EntityType="Self.HOPDONG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAIMA" EntityType="Self.LOAIMA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAISANH" EntityType="Self.LOAISANH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MONAN" EntityType="Self.MONAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SANH" EntityType="Self.SANH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SUDUNGDV" EntityType="Self.SUDUNGDV" Schema="dbo" store:Type="Tables" />
@@ -265,7 +285,11 @@
       <End Role="LOAIMA" EntitySet="LOAIMA" />
       <End Role="MONAN" EntitySet="MONAN" />
     </AssociationSet>
-    <AssociationSet Name="FK__SANH__IDTIECCUOI__5DCAEF64" Association="Self.FK__SANH__IDTIECCUOI__5DCAEF64">
+    <AssociationSet Name="FK__SANH__IDLOAI__797309D9" Association="Self.FK__SANH__IDLOAI__797309D9">
+      <End Role="LOAISANH" EntitySet="LOAISANH" />
+      <End Role="SANH" EntitySet="SANH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SANH__IDTIECCUOI__787EE5A0" Association="Self.FK__SANH__IDTIECCUOI__787EE5A0">
       <End Role="TIECCUOI" EntitySet="TIECCUOI" />
       <End Role="SANH" EntitySet="SANH" />
     </AssociationSet>

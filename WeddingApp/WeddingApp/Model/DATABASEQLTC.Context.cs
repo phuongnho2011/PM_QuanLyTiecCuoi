@@ -39,5 +39,6 @@ namespace WeddingApp.Model
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<SANH> SANHs { get; set; }
+        public virtual DbSet<LOAISANH> LOAISANHs { get; set; }
     }
 }

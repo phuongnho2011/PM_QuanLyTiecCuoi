@@ -13,20 +13,22 @@ namespace WeddingApp.Model
     using System.Collections.Generic;
     using WeddingApp.ViewModel;
 
-    public partial class LOAIMA : BaseViewModel
+    public partial class LOAISANH : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LOAIMA()
+        public LOAISANH()
         {
-            this.MONANs = new HashSet<MONAN>();
+            this.SANHs = new HashSet<SANH>();
         }
 
-        public int _IDLOAI { get; set; }
-        public int IDLOAI { get => _IDLOAI; set { _IDLOAI = value; OnPropertyChanged(); } }
+        public int _IDLOAISANH { get; set; }
+        public int IDLOAISANH { get => _IDLOAISANH; set { _IDLOAISANH = value; OnPropertyChanged(); } }
         public string _TENLOAI { get; set; }
         public string TENLOAI { get => _TENLOAI; set { _TENLOAI = value; OnPropertyChanged(); } }
+        public Nullable<decimal> _DGBANTOITHIEU { get; set; }
+        public Nullable<decimal> DGBANTOITHIEU { get => _DGBANTOITHIEU; set { _DGBANTOITHIEU = value; OnPropertyChanged(); } }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MONAN> MONANs { get; set; }
+        public virtual ICollection<SANH> SANHs { get; set; }
     }
 }
