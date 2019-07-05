@@ -56,6 +56,10 @@ namespace WeddingApp
                     usc = new LobbyWindow();
                     GridMain.Children.Add(usc);
                     break;
+                case "MonthReport":
+                    usc = new MonthReportW();
+                    GridMain.Children.Add(usc);
+                    break;
                 default:
                     break;
             }

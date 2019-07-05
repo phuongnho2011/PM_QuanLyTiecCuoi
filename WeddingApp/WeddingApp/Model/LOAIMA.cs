@@ -30,3 +30,4 @@ namespace WeddingApp.Model
         public virtual ICollection<MONAN> MONANs { get; set; }
     }
 }
+

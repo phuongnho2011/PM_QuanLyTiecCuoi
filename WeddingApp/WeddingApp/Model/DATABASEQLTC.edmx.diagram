@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="263cd893bb754456bb6b9a2e466df14f" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="SQLQLTCModel.BAOCAOTHANG" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SQLQLTCModel.BAOCAOTHANG" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SQLQLTCModel.DICHVU" Width="1.5" PointX="9.75" PointY="4.75" />
         <EntityTypeShape EntityType="SQLQLTCModel.HOADON" Width="1.5" PointX="7.5" PointY="3.875" />
         <EntityTypeShape EntityType="SQLQLTCModel.HOPDONG" Width="1.5" PointX="5.25" PointY="3.25" />

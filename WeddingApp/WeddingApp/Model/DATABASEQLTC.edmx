@@ -10,7 +10,8 @@
             <PropertyRef Name="IDBC" />
           </Key>
           <Property Name="IDBC" Type="int" Nullable="false" />
-          <Property Name="THANGNAM" Type="date" />
+          <Property Name="THANG" Type="int" />
+          <Property Name="NAM" Type="int" />
           <Property Name="TRUNGBINHDOANHTHU" Type="decimal" Precision="19" Scale="4" />
           <Property Name="SOLUONGPHAT" Type="int" />
           <Property Name="SOLUONGTIEC" Type="int" />
@@ -373,10 +374,11 @@
             <PropertyRef Name="IDBC" />
           </Key>
           <Property Name="IDBC" Type="Int32" Nullable="false" />
-          <Property Name="THANGNAM" Type="DateTime" Precision="0" />
           <Property Name="TRUNGBINHDOANHTHU" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SOLUONGPHAT" Type="Int32" />
           <Property Name="SOLUONGTIEC" Type="Int32" />
+          <Property Name="THANG" Type="Int32" />
+          <Property Name="NAM" Type="Int32" />
         </EntityType>
         <EntityType Name="DICHVU">
           <Key>
@@ -648,10 +650,11 @@
           <EntitySetMapping Name="BAOCAOTHANGs">
             <EntityTypeMapping TypeName="SQLQLTCModel.BAOCAOTHANG">
               <MappingFragment StoreEntitySet="BAOCAOTHANG">
+                <ScalarProperty Name="NAM" ColumnName="NAM" />
+                <ScalarProperty Name="THANG" ColumnName="THANG" />
                 <ScalarProperty Name="SOLUONGTIEC" ColumnName="SOLUONGTIEC" />
                 <ScalarProperty Name="SOLUONGPHAT" ColumnName="SOLUONGPHAT" />
                 <ScalarProperty Name="TRUNGBINHDOANHTHU" ColumnName="TRUNGBINHDOANHTHU" />
-                <ScalarProperty Name="THANGNAM" ColumnName="THANGNAM" />
                 <ScalarProperty Name="IDBC" ColumnName="IDBC" />
               </MappingFragment>
             </EntityTypeMapping>

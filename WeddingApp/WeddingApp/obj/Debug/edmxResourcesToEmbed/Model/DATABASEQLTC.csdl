@@ -58,10 +58,11 @@
       <PropertyRef Name="IDBC" />
     </Key>
     <Property Name="IDBC" Type="Int32" Nullable="false" />
-    <Property Name="THANGNAM" Type="DateTime" Precision="0" />
     <Property Name="TRUNGBINHDOANHTHU" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="SOLUONGPHAT" Type="Int32" />
     <Property Name="SOLUONGTIEC" Type="Int32" />
+    <Property Name="THANG" Type="Int32" />
+    <Property Name="NAM" Type="Int32" />
   </EntityType>
   <EntityType Name="DICHVU">
     <Key>

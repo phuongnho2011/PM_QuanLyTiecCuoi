@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1200">
     <Grid Background="#EDE7F6">
-        <StackPanel Orientation="Horizontal" Margin="80,50,0,0">
+        <StackPanel Orientation="Horizontal" Margin="80,50,0,0" HorizontalAlignment="Right">
             <Grid Width="300">
                 <StackPanel>
                     <materialDesign:ColorZone
@@ -101,7 +101,7 @@
                     </Grid>
                 </StackPanel>
             </Grid>
-            <Grid Width="500">
+            <Grid Width="450" HorizontalAlignment="Right">
                 <materialDesign:Card Margin="8 0 8 8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                     <ScrollViewer>
                         <ListView>

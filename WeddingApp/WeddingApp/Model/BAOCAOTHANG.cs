@@ -15,9 +15,10 @@ namespace WeddingApp.Model
     public partial class BAOCAOTHANG
     {
         public int IDBC { get; set; }
-        public Nullable<System.DateTime> THANGNAM { get; set; }
         public Nullable<decimal> TRUNGBINHDOANHTHU { get; set; }
         public Nullable<int> SOLUONGPHAT { get; set; }
         public Nullable<int> SOLUONGTIEC { get; set; }
+        public Nullable<int> THANG { get; set; }
+        public Nullable<int> NAM { get; set; }
     }
 }

@@ -10,9 +10,8 @@ namespace WeddingApp.ViewModel
 {
     public class CustomerViewModel : BaseViewModel
     {
-        private ObservableCollection<KHACHHANG> _List;
-        public ObservableCollection<KHACHHANG> List { get => _List; set { _List = value; OnPropertyChanged(); } }
-
+        private ObservableCollection<KHACHHANG> _ListKH;
+        public ObservableCollection<KHACHHANG> ListKH { get => _ListKH; set { _ListKH = value; OnPropertyChanged(); } }
 
     }
 }

@@ -17,29 +17,29 @@ namespace WeddingApp.ViewModel
 
         public MainViewModel()
         {
-          //  LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
-          //  {
-          //      Isloaded = true;
-          //      if (p == null)
-          //          return;
-          //      p.Hide();
-          //      LoginWindow loginWindow = new LoginWindow();
-          //      loginWindow.ShowDialog();
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                Isloaded = true;
+                if (p == null)
+                    return;
+                p.Hide();
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
 
-          //      if (loginWindow.DataContext == null)
-          //          return;
-          //      var loginVM = loginWindow.DataContext as LoginViewModel;
+                if (loginWindow.DataContext == null)
+                    return;
+                var loginVM = loginWindow.DataContext as LoginViewModel;
 
-          //      if (loginVM.IsLogin)
-          //      {
-          //          p.Show();
-          //      }
-          //      else
-          //      {
-          //          p.Close();
-          //      }
-          //  }
-          //);
+                if (loginVM.IsLogin)
+                {
+                    p.Show();
+                }
+                else
+                {
+                    p.Close();
+                }
+            }
+          );
             FoodCommand = new RelayCommand<object>((p) => { return true; }, (p) => { FoodWindow wd = new FoodWindow(); wd.ShowDialog(); });
             ServiceCommand = new RelayCommand<object>((p) => { return true; }, (p) => { ServiceWindow wd = new ServiceWindow(); wd.ShowDialog(); });            
         }

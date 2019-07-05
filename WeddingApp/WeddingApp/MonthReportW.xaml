@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="WeddingApp.MonthReportW"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WeddingApp"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1200">
+    <Grid Background="#EDE7F6">
+        <StackPanel Margin="40 25 0 0" Orientation="Vertical">
+            <materialDesign:Card Height="60" Margin="8">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox materialDesign:HintAssist.Hint="Tháng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="100" Margin="8 8 8 8"/>
+                    <TextBox materialDesign:HintAssist.Hint="Năm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="100" Margin="8 8 8 8"/>
+                    <Grid Width="1000" Height="60" Background="#FFEB3B">
+                    <TextBlock Text="LẬP BÁO CÁO THÁNG" TextAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+                    </Grid>
+                </StackPanel> 
+            </materialDesign:Card>
+            <materialDesign:Card Margin="8 0 8 8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="380">
+                <ScrollViewer>
+                    <ListView>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Trung Binh Doanh Thu" ></GridViewColumn>
+                                <GridViewColumn Header="So Luong Phat"></GridViewColumn>
+                                <GridViewColumn Header="So Luong Tiec"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -5,7 +5,8 @@
       <PropertyRef Name="IDBC" />
     </Key>
     <Property Name="IDBC" Type="int" Nullable="false" />
-    <Property Name="THANGNAM" Type="date" />
+    <Property Name="THANG" Type="int" />
+    <Property Name="NAM" Type="int" />
     <Property Name="TRUNGBINHDOANHTHU" Type="decimal" Precision="19" Scale="4" />
     <Property Name="SOLUONGPHAT" Type="int" />
     <Property Name="SOLUONGTIEC" Type="int" />

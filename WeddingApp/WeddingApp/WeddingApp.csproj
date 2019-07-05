@@ -152,6 +152,9 @@
     <Compile Include="Model\UserRole.cs">
       <DependentUpon>DATABASEQLTC.tt</DependentUpon>
     </Compile>
+    <Compile Include="MonthReportW.xaml.cs">
+      <DependentUpon>MonthReportW.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ServiceWindow.xaml.cs">
       <DependentUpon>ServiceWindow.xaml</DependentUpon>
     </Compile>
@@ -162,6 +165,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModel\MReportViewModel.cs" />
     <Compile Include="ViewModel\PartyViewModel.cs" />
     <Compile Include="ViewModel\ServicesViewModel.cs" />
     <Page Include="BookingManage.xaml">
@@ -196,6 +200,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MonthReportW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceXAML\MainResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

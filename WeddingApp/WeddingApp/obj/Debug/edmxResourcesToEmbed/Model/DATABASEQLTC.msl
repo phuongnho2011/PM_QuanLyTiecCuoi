@@ -4,10 +4,11 @@
     <EntitySetMapping Name="BAOCAOTHANGs">
       <EntityTypeMapping TypeName="SQLQLTCModel.BAOCAOTHANG">
         <MappingFragment StoreEntitySet="BAOCAOTHANG">
+          <ScalarProperty Name="NAM" ColumnName="NAM" />
+          <ScalarProperty Name="THANG" ColumnName="THANG" />
           <ScalarProperty Name="SOLUONGTIEC" ColumnName="SOLUONGTIEC" />
           <ScalarProperty Name="SOLUONGPHAT" ColumnName="SOLUONGPHAT" />
           <ScalarProperty Name="TRUNGBINHDOANHTHU" ColumnName="TRUNGBINHDOANHTHU" />
-          <ScalarProperty Name="THANGNAM" ColumnName="THANGNAM" />
           <ScalarProperty Name="IDBC" ColumnName="IDBC" />
         </MappingFragment>
       </EntityTypeMapping>

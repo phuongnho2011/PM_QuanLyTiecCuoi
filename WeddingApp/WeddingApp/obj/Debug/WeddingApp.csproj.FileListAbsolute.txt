@@ -84,3 +84,5 @@ D:\MTCL2\Nhập Môn Công Nghệ Phần Mềm\PM_QuanLyTiecCuoi\WeddingApp\Wedd
 D:\MTCL2\Nhập Môn Công Nghệ Phần Mềm\PM_QuanLyTiecCuoi\WeddingApp\WeddingApp\obj\Debug\WeddingApp.pdb
 D:\MTCL2\Nhập Môn Công Nghệ Phần Mềm\PM_QuanLyTiecCuoi\WeddingApp\WeddingApp\obj\Debug\LobbyWindow.g.cs
 D:\MTCL2\Nhập Môn Công Nghệ Phần Mềm\PM_QuanLyTiecCuoi\WeddingApp\WeddingApp\obj\Debug\LobbyWindow.baml
+D:\MTCL2\Nhập Môn Công Nghệ Phần Mềm\PM_QuanLyTiecCuoi\WeddingApp\WeddingApp\obj\Debug\MonthReportW.g.cs
+D:\MTCL2\Nhập Môn Công Nghệ Phần Mềm\PM_QuanLyTiecCuoi\WeddingApp\WeddingApp\obj\Debug\MonthReportW.baml
