@@ -15,34 +15,34 @@ namespace WeddingApp.Model
 
     public partial class SANH : BaseViewModel
     {
-        public int _IDSANH { get; set; }
+        private int _IDSANH { get; set; }
         public int IDSANH { get => _IDSANH; set { _IDSANH = value; OnPropertyChanged(); } }
 
-        public string _TENSANH { get; set; }
+        private string _TENSANH { get; set; }
         public string TENSANH { get => _TENSANH; set { _TENSANH = value; OnPropertyChanged(); } }
 
-        public Nullable<int> _SLBANTOIDA { get; set; }
+        private Nullable<int> _SLBANTOIDA { get; set; }
         public Nullable<int> SLBANTOIDA { get => _SLBANTOIDA; set { _SLBANTOIDA = value; OnPropertyChanged(); } }
 
-        public Nullable<decimal> _DGBANTOITHIEU { get; set; }
+        private Nullable<decimal> _DGBANTOITHIEU { get; set; }
         public Nullable<decimal> DGBANTOITHIEU { get => _DGBANTOITHIEU; set { _DGBANTOITHIEU = value; OnPropertyChanged(); } }
 
-        public string _GHICHU { get; set; }
+        private string _GHICHU { get; set; }
         public string GHICHU { get => _GHICHU; set { _GHICHU = value; OnPropertyChanged(); } }
 
-        public Nullable<int> _IDTIECCUOI { get; set; }
+        private Nullable<int> _IDTIECCUOI { get; set; }
         public Nullable<int> IDTIECCUOI { get => _IDTIECCUOI; set { _IDTIECCUOI = value; OnPropertyChanged(); } }
 
-        public Nullable<bool> _TRANGTHAI { get; set; }
+        private Nullable<bool> _TRANGTHAI { get; set; }
         public Nullable<bool> TRANGTHAI { get => _TRANGTHAI; set { _TRANGTHAI = value; OnPropertyChanged(); } }
 
-        public virtual TIECCUOI _TIECCUOI { get; set; }
+        private TIECCUOI _TIECCUOI { get; set; }
         public virtual TIECCUOI TIECCUOI { get => _TIECCUOI; set { _TIECCUOI = value; OnPropertyChanged(); } }
 
-        public Nullable<int> _IDLOAI { get; set; }
+        private Nullable<int> _IDLOAI { get; set; }
         public Nullable<int> IDLOAI { get => _IDLOAI; set { _IDLOAI = value; OnPropertyChanged(); } }
 
-        public virtual LOAISANH _LOAISANH { get; set; }
+        private LOAISANH _LOAISANH { get; set; }
         public virtual LOAISANH LOAISANH { get => _LOAISANH; set { _LOAISANH = value; OnPropertyChanged(); } }
     }
 }

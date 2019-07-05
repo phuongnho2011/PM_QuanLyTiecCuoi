@@ -21,11 +21,11 @@ namespace WeddingApp.Model
             this.SANHs = new HashSet<SANH>();
         }
 
-        public int _IDLOAISANH { get; set; }
+        private int _IDLOAISANH { get; set; }
         public int IDLOAISANH { get => _IDLOAISANH; set { _IDLOAISANH = value; OnPropertyChanged(); } }
-        public string _TENLOAI { get; set; }
+        private string _TENLOAI { get; set; }
         public string TENLOAI { get => _TENLOAI; set { _TENLOAI = value; OnPropertyChanged(); } }
-        public Nullable<decimal> _DGBANTOITHIEU { get; set; }
+        private Nullable<decimal> _DGBANTOITHIEU { get; set; }
         public Nullable<decimal> DGBANTOITHIEU { get => _DGBANTOITHIEU; set { _DGBANTOITHIEU = value; OnPropertyChanged(); } }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

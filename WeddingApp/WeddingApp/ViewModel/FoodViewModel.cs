@@ -69,7 +69,6 @@ namespace WeddingApp.ViewModel
         public string TENMON { get => _TENMON; set { _TENMON = value; OnPropertyChanged(); } }
         public decimal? DONGIA { get => _DONGIA; set { _DONGIA = value; OnPropertyChanged(); } }
         public string GHICHU { get => _GHICHU; set { _GHICHU = value; OnPropertyChanged(); } }
-
         private LOAIMA _LOAIMA;
         public virtual LOAIMA LOAIMA { get => _LOAIMA; set { _LOAIMA = value; OnPropertyChanged(); } }
 
