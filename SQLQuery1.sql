@@ -1,7 +1,5 @@
 USE master
 GO
-DROP DATABASE SQLQLTC
-GO
 CREATE DATABASE SQLQLTC
 GO
 USE SQLQLTC
@@ -140,6 +138,13 @@ CREATE TABLE SANH (
 )
 GO
 
+INSERT INTO UserRole(DisplayName ) VALUES ('admin')
+go
 
+INSERT INTO UserRole(DisplayName ) VALUES ('staff')
+go
+
+INSERT INTO Users(DisplayName,UserName, Password, IdRole ) VALUES ('admin','phuongnho','db69fc039dcbd2962cb4d28f5891aae1', 1)
+go
 
 
